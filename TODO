@@ -1,0 +1,20 @@
+1/23/2016: Version 0.1
+================================
+TODO:
+	1. Implement more Abstract Data-Types such as:
+		a. Trees 
+			i. Maybe implement one with just left-right nodes
+			   and implement another with a pointer to the parent
+			   as well
+		b. Associative array
+			i. Maybe have a structure called a cell with a string
+			   as the key, and a pointer to any data type as a value
+		c. Circular Lists
+			i. Just implement the singly and doubly lists with a
+			   a pointer to the head node, once next == NULL, set
+			   next == headNode
+		d. Matricies
+			i. Implement Mat2, Mat3,Mat4
+
+	2. Implement more Vector Functions
+			i. Lerp, Slerp, Normalize, etc..

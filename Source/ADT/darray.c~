@@ -1,0 +1,78 @@
+#include "../../Include/darray.h"
+#include "../../Include/general.h"
+
+//vector allocation//
+int vecIniti(Clim_darrayi *v,size_t initialCapacity){
+	v->data = (int)malloc(initialCapacity * sizeof(int));
+	if(!v->data) return -1;
+
+	v->limit = initialCapacity;
+	v->current = 0;
+	return 0;
+
+}
+Clim_darrayu *vecInitu(Clim_darrayu *v,size_t initialCapacity);
+Clim_darrayf *vecInitf(Clim_darrayf *v,size_t initialCapacity);
+Clim_darrayu *vecInitu(Clim_darrayu *v,size_t initialCapacity);
+Clim_darrayg *vecInitg(Clim_darrayg *v,size_t initialCapacity);
+
+//Vector Resizing default and custom//
+int resizeDAi(Clim_darrayi *v){
+
+	Clim_darrayi *temp = (Clim_darrayi*)malloc(sizeof(v->limit *2));
+	temp->limit =v->limit * 2;
+	if(vecCopyi(v,temp) != 0){
+		return -1;
+	}
+	swapPointers(v,temp);
+	free(temp);
+
+	return 0;
+	}
+
+//vector copying//
+/*
+	Returns integer.  If:
+		return 0 : Everything went fine, no errors.
+		return -1 : Destination is smaller then source
+		return -2 : The source vector doesnt match up to destination vector;
+*/
+int vecCopyi(Clim_darrayi *source,Clim_darrayi *destination){
+
+	//first check if destinations size = source size;
+	if(destination->limit < source->limit) return -1;
+
+	//copying elements based off of sources size
+	for(int i = 0; i <source->limit ; i++)
+		{
+			source->data[i] = destination->data[i];
+		}
+	// error checking .... maybe take this out if not necessary?
+	for(int i = 0; i < source->limit ; i++)
+		{
+			if(source->data[i] != destination->data[i];
+			return -2;
+		}
+	return 0;
+
+	}
+
+int vecCopyu(Clim_darrayu *source,Clim_darrayu *destination);
+int vecCopyf(Clim_darrayf *source,Clim_darrayf *destination);
+int vecCopyu(Clim_darrayu *source,Clim_darrayu *destination);
+int vecCopyg(Clim_darrayg *source,Clim_darrayg *destination);
+
+//vector push/pop
+//Doesnt Return//
+
+void vecPushi(Clim_darrayi *source,Clim_darrayi *destination);
+void vecPushu(Clim_darrayu *source,Clim_darrayu *destination);
+void vecPushf(Clim_darrayf *source,Clim_darrayf *destination);
+void vecPushu(Clim_darrayu *source,Clim_darrayu *destination);
+void vecPushg(Clim_darrayg *source,Clim_darrayg *destination);
+
+void vecPopi(Clim_darrayi *source,Clim_darrayi *destination);
+void vecPopu(Clim_darrayu *source,Clim_darrayu *destination);
+void vecPopf(Clim_darrayf *source,Clim_darrayf *destination);
+void vecPopu(Clim_darrayu *source,Clim_darrayu *destination);
+void vecPopg(Clim_darrayg *source,Clim_darrayg *destination);

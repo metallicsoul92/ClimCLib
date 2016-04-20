@@ -1,0 +1,15 @@
+///////////////////////////////////////////////////////
+//                                                   //
+//                  Clim-C-Lib                       //
+//              author: Jim Clark                    //
+//                                                   //
+//    Purpose: A General Purpose Library containing  //
+// out of the box Abstract Data types and utility    //
+// functions needed in any type of c programming.    //
+//                                                   //
+//                                                   //
+///////////////////////////////////////////////////////
+
+  Update: 4/17/16:
+    So i have decided to roll out my own custom physics objects in this library
+    so that i can use them later in my game engine.
