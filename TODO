@@ -6,7 +6,7 @@ TODO:
 			i. Maybe implement one with just left-right nodes
 			   and implement another with a pointer to the parent
 			   as well
-		b. Associative array
+		b. Associative array [Semi implemented]
 			i. Maybe have a structure called a cell with a string
 			   as the key, and a pointer to any data type as a value
 		c. Circular Lists
