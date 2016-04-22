@@ -18,43 +18,43 @@ Clim_diNode *mallocDINode( Clim_diNode *node){
 	return node;
 	}
 
-/* The following functions are used for searching items in the  lists */
+/* The following functions are used for searching items in the lists */
 Clim_dgNode *dgsearch( Clim_dgNode *node, void *data){
-	while(node->next != 0){
-	if(data == node->headData){
-		return node;
-	}else if(node->next ==0){
+	if (!node) {
 		return 0;
-	}else
-		return dgsearch(node->next, data);
-}}
+	}
+	if (data == node->headData) {
+		return node;
+	}
+	return dgsearch(node->next, data);
+}
 Clim_dfNode *dfsearch( Clim_dfNode *node, float data){
-	while(node->next != 0){
-	if(data == node->headData){
-		return node;
-	}else if(node->next ==0){
+	if (!node) {
 		return 0;
-	}else
-		return dfsearch(node->next, data);
-}}
+	}
+	if (data == node->headData) {
+		return node;
+	}
+	return dfsearch(node->next, data);
+}
 Clim_dcNode *dcsearch( Clim_dcNode *node, char data){
-	while(node->next != 0){
-	if(data == node->headData){
-		return node;
-	}else if(node->next ==0){
+	if (!node) {
 		return 0;
-	}else
-		return dcsearch(node->next, data);
-}}
+	}
+	if (data == node->headData) {
+		return node;
+	}
+	return dcsearch(node->next, data);
+}
 Clim_diNode *disearch( Clim_diNode *node, int data){
-	while(node->next != 0){
-	if(data == node->headData){
-		return node;
-	}else if(node->next ==0){
+	if (!node) {
 		return 0;
-	}else
-		return disearch(node->next, data);
-}}
+	}
+	if (data == node->headData) {
+		return node;
+	}
+	return disearch(node->next, data);
+}
 /* The following functions are used for inserting items in the lists lists */
 void dginsert( Clim_dgNode *node,int index, void *data){
 	int i = 0;

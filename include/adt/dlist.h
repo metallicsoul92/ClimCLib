@@ -14,19 +14,19 @@ struct _diNode{
 
 struct _dcNode{
   char headData;
-  struct _diNode *prev;
+  struct _dcNode *prev;
   struct _dcNode *next;
 };
 
 struct _dfNode{
   float headData;
-  struct _diNode *prev;
+  struct _dfNode *prev;
   struct _dfNode *next;
 };
 
 struct _dgNode{
   void *headData;
-  struct _diNode *prev;
+  struct _dgNode *prev;
   struct _dgNode *next;
 };
 

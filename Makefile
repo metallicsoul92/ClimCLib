@@ -14,7 +14,7 @@ OBJS  = $(patsubst $(SOURCE_DIR)/ADT/%.c,$(SOURCE_DIR)/ADT/%.o,$(wildcard $(SOUR
 OBJS += $(patsubst $(SOURCE_DIR)/Physics/%.c,$(SOURCE_DIR)/Physics/%.o,$(wildcard $(SOURCE_DIR)/Physics/*.c))
 OBJS += $(patsubst $(SOURCE_DIR)/Utility/%.c,$(SOURCE_DIR)/Utility/%.o,$(wildcard $(SOURCE_DIR)/Utility/*.c))
 
-CFLAGS := -Wall -std=c11 -I$(INCLUDE_DIR)
+CFLAGS := -Wall -Werror -pedantic-errors -std=c11 -I$(INCLUDE_DIR)
 
 .PHONY: all clean make_local rm_Local
 

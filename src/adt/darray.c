@@ -120,8 +120,8 @@ int vecCopyi(Clim_darrayi *source,Clim_darrayi *destination){
 	// error checking .... maybe take this out if not necessary?
 	for(unsigned int i = 0; i < source->limit ; i++)
 		{
-			if(source->data[i] != destination->data[i]);
-			return -2;
+			if(source->data[i] != destination->data[i])
+				return -2;
 		}
 	return 0;
 
@@ -140,8 +140,8 @@ int vecCopyu(Clim_darrayu *source,Clim_darrayu *destination){
 	// error checking .... maybe take this out if not necessary?
 	for(unsigned int i = 0; i < source->limit ; i++)
 		{
-			if(source->data[i] != destination->data[i]);
-			return -2;
+			if(source->data[i] != destination->data[i])
+				return -2;
 		}
 	return 0;
 
@@ -159,8 +159,8 @@ int vecCopyf(Clim_darrayf *source,Clim_darrayf *destination){
 	// error checking .... maybe take this out if not necessary?
 	for(unsigned int i = 0; i < source->limit ; i++)
 		{
-			if(source->data[i] != destination->data[i]);
-			return -2;
+			if(source->data[i] != destination->data[i])
+				return -2;
 		}
 	return 0;
 
@@ -178,8 +178,8 @@ int vecCopyc(Clim_darrayc *source,Clim_darrayc *destination){
 	// error checking .... maybe take this out if not necessary?
 	for(unsigned int i = 0; i < source->limit ; i++)
 		{
-			if(source->data[i] != destination->data[i]);
-			return -2;
+			if(source->data[i] != destination->data[i])
+				return -2;
 		}
 	return 0;
 

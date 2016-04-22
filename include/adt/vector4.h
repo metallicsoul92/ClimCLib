@@ -44,11 +44,11 @@ typedef struct _vector4c Clim_vector4c;
 typedef struct _vector4g Clim_vector4g;
 
 //MallocFunctions//
-Clim_vector4i *mallocvec4i(Clim_vector4i *obj,int ox, int oy,int oz, int ow);
-Clim_vector4u *mallocvec4u(Clim_vector4u *obj,unsigned int ox, unsigned int oy, unsigned int oz, unsigned int ow);
-Clim_vector4f *mallocvec4f(Clim_vector4f *obj,float ox,float oy, float oz, float ow);
-Clim_vector4c *mallocvec4c(Clim_vector4c *obj,char ox,char oy, char oz, char ow);
-Clim_vector4g *mallocvec4g(Clim_vector4g *obj,void *ox, void *oy, void *oz, void *ow);
+Clim_vector4i *mallocvec4i(int ox, int oy,int oz, int ow);
+Clim_vector4u *mallocvec4u(unsigned int ox, unsigned int oy, unsigned int oz, unsigned int ow);
+Clim_vector4f *mallocvec4f(float ox,float oy, float oz, float ow);
+Clim_vector4c *mallocvec4c(char ox,char oy, char oz, char ow);
+Clim_vector4g *mallocvec4g(void *ox, void *oy, void *oz, void *ow);
 
 //Addition functions//
 Clim_vector4i *addvec4i(Clim_vector4i *a,Clim_vector4i *b);
