@@ -1,4 +1,4 @@
-#include "../../Include/aabb.h"
+#include "physics/aabb.h"
 
 int checkBoundsf(Clim_AABBf a,Clim_AABBf b){
 if(a.max.x < b.min.x  || a.min.x > b.max.x)

@@ -1,8 +1,8 @@
 #ifndef CIRCLE_H_
 #define CIRCLE_H_
 
-#include "vector2.h"
-#include "physicsIntersectData.h"
+#include "adt/vector2.h"
+#include "physics/physicsIntersectData.h"
 
 struct _circlei2d{
   float radius;

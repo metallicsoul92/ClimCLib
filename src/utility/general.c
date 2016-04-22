@@ -1,4 +1,4 @@
-#include "../../Include/general.h"
+#include "utility/general.h"
 
 
 void swapPointers(void *a,void *b){
@@ -7,4 +7,3 @@ void swapPointers(void *a,void *b){
 	a = b;
 	b = temp;
 	}
-

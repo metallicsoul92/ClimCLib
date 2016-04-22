@@ -1,7 +1,7 @@
 #ifndef AABB_H_
 #define AABB_H_
 
-#include "vector2.h"
+#include "adt/vector2.h"
 
 struct _AABBf{
   Clim_vector2f min;
