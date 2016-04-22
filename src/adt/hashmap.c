@@ -1,4 +1,4 @@
-#include "../../Include/hashmap.h"
+#include "adt/hashmap.h"
 #include <stdlib.h>
 _hashElementPtr newElement(int key, void **data){
   _hashElementPtr handle = (_hashElementPtr)malloc(sizeof(_hashElementPtr));

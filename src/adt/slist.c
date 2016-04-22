@@ -1,4 +1,4 @@
-#include "../../Include/slist.h"
+#include "adt/slist.h"
 #include <stdlib.h>
 /* The following functions are used for allocating memory for nodes */
 	Clim_sgNode *mallocSGNode( Clim_sgNode *node){

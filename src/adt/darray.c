@@ -1,5 +1,5 @@
-#include "../../Include/darray.h"
-#include "../../Include/general.h"
+#include "adt/darray.h"
+#include "utility/general.h"
 #include <stdio.h>
 #include <string.h>
 

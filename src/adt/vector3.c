@@ -1,4 +1,4 @@
-#include "../../Include/vector3.h"
+#include "adt/vector3.h"
 #include <stdlib.h>
 
 //MallocFunctions//

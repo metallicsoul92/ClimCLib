@@ -1,6 +1,6 @@
 #ifndef PHYSICSINTERSECTDATA_H_
 #define PHYSICSINTERSECTDATA_H_
-#include "common.h"
+#include "utility/common.h"
 
 
 struct _physicsIntersectData{

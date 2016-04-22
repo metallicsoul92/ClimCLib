@@ -1,4 +1,4 @@
-#include "../../Include/dlist.h"
+#include "adt/dlist.h"
 #include <stdlib.h>
 /* The following functions are used for allocating memory for nodes */
 Clim_dgNode *mallocDGNode( Clim_dgNode *node){
