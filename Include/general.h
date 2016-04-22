@@ -3,7 +3,7 @@
 
 
 void swapPointers(void *a,void *b);
-
+const char* timeToString();
 
 
 #endif //GENERAL_H_

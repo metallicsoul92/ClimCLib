@@ -12,7 +12,7 @@ struct _diNode{
   struct _diNode *next;
 };
 
-struct _dcNode{
+struct _dcNode-
   char headData;
   struct _diNode *prev;
   struct _dcNode *next;
