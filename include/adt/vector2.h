@@ -33,11 +33,11 @@ typedef struct _vector2c Clim_vector2c;
 typedef struct _vector2g Clim_vector2g;
 
 //MallocFunctions//
-Clim_vector2i *mallocVec2i(Clim_vector2i *obj,int ox, int oy);
-Clim_vector2u *mallocVec2u(Clim_vector2u *obj,unsigned int ox, unsigned int oy);
-Clim_vector2f *mallocVec2f(Clim_vector2f *obj,float ox,float oy);
-Clim_vector2c *mallocVec2c(Clim_vector2c *obj,char ox,char oy);
-Clim_vector2g *mallocVec2g(Clim_vector2g *obj,void *ox, void *oy);
+Clim_vector2i *mallocVec2i(int ox, int oy);
+Clim_vector2u *mallocVec2u(unsigned int ox, unsigned int oy);
+Clim_vector2f *mallocVec2f(float ox,float oy);
+Clim_vector2c *mallocVec2c(char ox,char oy);
+Clim_vector2g *mallocVec2g(void *ox, void *oy);
 
 //Addition functions//
 Clim_vector2i *addVec2i(Clim_vector2i *a,Clim_vector2i *b);

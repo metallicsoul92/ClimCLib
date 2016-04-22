@@ -6,7 +6,6 @@ struct _vector3i{
 	int x;
 	int y;
 	int z;
-
 };
 
 struct _vector3u{
@@ -39,11 +38,11 @@ typedef struct _vector3c Clim_vector3c;
 typedef struct _vector3g Clim_vector3g;
 
 //MallocFunctions//
-Clim_vector3i *mallocVec3i(Clim_vector3i *obj,int ox, int oy,int oz);
-Clim_vector3u *mallocVec3u(Clim_vector3u *obj,unsigned int ox, unsigned int oy, unsigned int oz);
-Clim_vector3f *mallocVec3f(Clim_vector3f *obj,float ox,float oy, float oz);
-Clim_vector3c *mallocVec3c(Clim_vector3c *obj,char ox,char oy, char oz);
-Clim_vector3g *mallocVec3g(Clim_vector3g *obj,void *ox, void *oy, void *oz);
+Clim_vector3i *mallocVec3i(int ox, int oy,int oz);
+Clim_vector3u *mallocVec3u(unsigned int ox, unsigned int oy, unsigned int oz);
+Clim_vector3f *mallocVec3f(float ox,float oy, float oz);
+Clim_vector3c *mallocVec3c(char ox,char oy, char oz);
+Clim_vector3g *mallocVec3g(void *ox, void *oy, void *oz);
 
 //Addition functions//
 Clim_vector3i *addVec3i(Clim_vector3i *a,Clim_vector3i *b);

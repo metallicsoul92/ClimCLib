@@ -59,44 +59,45 @@ Clim_sfList *mallocESFList(Clim_sfList *list){
 }
 /* The following functions are used for searching items the  lists */
 Clim_sgNode *gsearch( Clim_sgNode *node, void *data){
-	while(node->next != 0){
-	if(data == node->headData){
-		return node;
-	}else if(node->next ==0){
+	if (!node) {
 		return 0;
-	}else
-		return gsearch(node->next, data);
-}}
-
-
+	}
+	if (data == node->headData) {
+		return node;
+	}
+	return gsearch(node->next, data);
+}
 
 Clim_sfNode *fsearch( Clim_sfNode *node, float data){
-	while(node->next != 0){
-	if(data == node->headData){
-		return node;
-	}else if(node->next ==0){
+	if (!node) {
 		return 0;
-	}else
-		return fsearch(node->next, data);
-}}
+	}
+	if (data == node->headData) {
+		return node;
+	}
+	return fsearch(node->next, data);
+}
+
 Clim_scNode *csearch( Clim_scNode *node, char data){
-	while(node->next != 0){
-	if(data == node->headData){
-		return node;
-	}else if(node->next ==0){
+	if (!node) {
 		return 0;
-	}else
-		return csearch(node->next, data);
-}  }
+	}
+	if (data == node->headData) {
+		return node;
+	}
+	return csearch(node->next, data);
+}
+
 Clim_siNode *isearch( Clim_siNode *node, int data){
-	while(node->next != 0){
-	if(data == node->headData){
-		return node;
-	}else if(node->next ==0){
+	if (!node) {
 		return 0;
-	}else
-		return isearch(node->next, data);
-}}
+	}
+	if (data == node->headData) {
+		return node;
+	}
+	return isearch(node->next, data);
+}
+
 /* The following functions are used for inserting items in the lists lists */
 void ginsert( Clim_sgNode *node,int index, void *data){
 	int i = 0;
