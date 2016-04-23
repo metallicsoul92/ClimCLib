@@ -1,5 +1,5 @@
 #include "physics/circle.h"
-
+#include "adt/vector2.h"
 #include <math.h>
 
 int CivsCi(Clim_Circlei2D a,Clim_Circlei2D b){
@@ -18,8 +18,11 @@ int CfvsCf(Clim_Circlef2D a,Clim_Circlef2D b){
 
 
 Clim_physicsIntersectData intersectCi(Clim_Circlei2D a, Clim_Circlei2D b){
-    float rDist = a.radius + b.radius;
-    float cDist = magnitude2i(*addVec2i(&a.pos,&b.pos));
+  float rDist = a.radius + b.radius;
+  Clim_vector2i temp;
+  addVec2i(&temp,&a.pos,&b.pos);
+
+  float cDist = magnitude2i(temp);
 
     if(cDist < rDist){
       Clim_physicsIntersectData d = { .doesInteract = TRUE, .distance = cDist - rDist};
@@ -30,8 +33,11 @@ Clim_physicsIntersectData intersectCi(Clim_Circlei2D a, Clim_Circlei2D b){
     }
   }
   Clim_physicsIntersectData intersectCu(Clim_Circleu2D a,Clim_Circleu2D b){
- 	float rDist = a.radius + b.radius;
-    	float cDist = magnitude2u(*addVec2u(&a.pos,&b.pos));
+ 	    float rDist = a.radius + b.radius;
+      Clim_vector2u temp;
+      addVec2u(&temp,&a.pos,&b.pos);
+
+    	float cDist = magnitude2u(temp);
 
     	if(cDist < rDist){
       		Clim_physicsIntersectData d = { .doesInteract = TRUE, .distance = cDist - rDist};
@@ -41,9 +47,12 @@ Clim_physicsIntersectData intersectCi(Clim_Circlei2D a, Clim_Circlei2D b){
 		return d;
 		}
 	}
-  Clim_physicsIntersectData intersectCb(Clim_Circlef2D a,Clim_Circlef2D b){
-	float rDist = a.radius + b.radius;
-	float cDist = magnitude2f(*addVec2f(&a.pos,&b.pos));
+  Clim_physicsIntersectData intersectCf(Clim_Circlef2D a,Clim_Circlef2D b){
+    float rDist = a.radius + b.radius;
+    Clim_vector2f temp;
+    addVec2f(&temp,&a.pos,&b.pos);
+
+    float cDist = magnitude2f(temp);
 
     	if(cDist < rDist){
       		Clim_physicsIntersectData d = { .doesInteract = TRUE, .distance = cDist - rDist};

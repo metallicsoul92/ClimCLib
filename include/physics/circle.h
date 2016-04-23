@@ -30,5 +30,6 @@ int CfvsCf(Clim_Circlef2D a,Clim_Circlef2D b);
 
 Clim_physicsIntersectData intersectCi(Clim_Circlei2D a, Clim_Circlei2D b);
 Clim_physicsIntersectData intersectCu(Clim_Circleu2D a, Clim_Circleu2D b);
+Clim_physicsIntersectData intersectCf(Clim_Circlef2D a, Clim_Circlef2D b);
 
 #endif //CIRCLE_H_

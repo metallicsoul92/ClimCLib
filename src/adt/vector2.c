@@ -80,32 +80,32 @@ void multVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *
 void divVec2i(Clim_vector2i *out, const Clim_vector2i *a, const Clim_vector2i *b){
     if(b->x ==0 || b->y ==0)
     {
-      b->x =1;
-      b->y =1;
-    }
-
+      out->x = a->x / b->x+1;
+      out->y = a->y / b->y+1;
+    }else{
     out->x = a->x / b->x;
     out->y = a->y / b->y;
+}
 }
 void divVec2u(Clim_vector2u *out, const Clim_vector2u *a, const Clim_vector2u *b){
-    if(b->x ==0 || b->y ==0)
-    {
-      b->x =1;
-      b->y =1;
-    }
-
-    out->x = a->x / b->x;
-    out->y = a->y / b->y;
+  if(b->x ==0 || b->y ==0)
+  {
+    out->x = a->x / b->x+1;
+    out->y = a->y / b->y+1;
+  }else{
+  out->x = a->x / b->x;
+  out->y = a->y / b->y;
+}
 }
 void divVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *b){
-    if(b->x ==0 || b->y ==0)
-    {
-      b->x =1.0f;
-      b->y =1.0f;
-    }
-
-    out->x = a->x / b->x;
-    out->y = a->y / b->y;
+  if(b->x ==0 || b->y ==0)
+  {
+    out->x = a->x / b->x+1;
+    out->y = a->y / b->y+1;
+  }else{
+  out->x = a->x / b->x;
+  out->y = a->y / b->y;
+}
 }
 
 // magnitude functions
@@ -137,7 +137,7 @@ void lerp2i(Clim_vector2i *out,const Clim_vector2i *a, const Clim_vector2i *b,co
 }
 void lerp2f(Clim_vector2f* out, const Clim_vector2f *a,const Clim_vector2f *b,const float percent){
   Clim_vector2f i, j,k;
-  subVec2i(&i,b,a);
+  subVec2f(&i,b,a);
   j.x = percent/100.0f;
   j.y = percent/100.0f;
   multVec2f(&k,&i,&j);
@@ -148,20 +148,38 @@ void lerp2f(Clim_vector2f* out, const Clim_vector2f *a,const Clim_vector2f *b,co
 //Min/Max Functions//
 
 Clim_vector2i *Max2i(Clim_vector2i *a,Clim_vector2i *b){
-    return ((magnitude2i(a) > magnitude2i(b)) ? a : b);
+    if(magnitude2i(*a) > magnitude2i(*b))
+      return a;
+
+    return b;
 }
 Clim_vector2u *Max2u(Clim_vector2u *a,Clim_vector2u *b){
-    return ((magnitude2u(a) > magnitude2u(b)) ? a : b);
+  if(magnitude2u(*a) > magnitude2u(*b))
+    return a;
+
+  return b;
 }
 Clim_vector2f *Max2f(Clim_vector2f *a,Clim_vector2f *b){
-    return ((magnitude2f(a) > magnitude2f(b)) ? a : b);
+  if(magnitude2f(*a) > magnitude2f(*b))
+    return a;
+
+  return b;
 }
 Clim_vector2i *Min2i(Clim_vector2i *a,Clim_vector2i *b){
-    return ((magnitude2i(a) < magnitude2i(b)) ? a : b);
+  if(magnitude2i(*a) < magnitude2i(*b))
+    return a;
+
+  return b;
 }
 Clim_vector2u *Min2u(Clim_vector2u *a,Clim_vector2u *b){
-    return ((magnitude2u(a) < magnitude2u(b)) ? a : b);
+  if(magnitude2u(*a) > magnitude2u(*b))
+    return a;
+
+  return b;
 }
 Clim_vector2f *Min2f(Clim_vector2f *a,Clim_vector2f *b){
-    return ((magnitude2f(a) < magnitude2f(b)) ? a : b);
+  if(magnitude2f(*a)< magnitude2f(*b))
+    return a;
+
+  return b;
 }

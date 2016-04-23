@@ -108,57 +108,68 @@ void multVec4f(Clim_vector4f *out, const Clim_vector4f *a, const Clim_vector4f *
 void divVec4i(Clim_vector4i *out, const Clim_vector4i *a, const Clim_vector4i *b){
     if(b->x ==0 || b->y ==0 || b->z == 0 || b->w ==0)
     {
-      b->x =1;
-      b->y =1;
-      b->z =1;
-			b->w =1;
-    }
-
+			out->x = a->x / b->x+1;
+	    out->y = a->y / b->y+1;
+	    out->z = a->z / b->z+1;
+			out->w = a->w / b->w+1;
+    }else{
     out->x = a->x / b->x;
     out->y = a->y / b->y;
     out->z = a->z / b->z;
 		out->w = a->w / b->w;
+	}
 }
 void divVec4u(Clim_vector4u *out, const Clim_vector4u *a, const Clim_vector4u *b){
-    if(b->x ==0 || b->y ==0 || b->z == 0 || b->w ==0)
-    {
-      b->x =1;
-      b->y =1;
-      b->z =1;
-			b->w =1;
-    }
-
-    out->x = a->x / b->x;
-    out->y = a->y / b->y;
-    out->z = a->z / b->z;
-		out->w = a->w / b->w;
+	if(b->x ==0 || b->y ==0 || b->z == 0 || b->w ==0)
+	{
+		out->x = a->x / b->x+1;
+		out->y = a->y / b->y+1;
+		out->z = a->z / b->z+1;
+		out->w = a->w / b->w+1;
+	}else{
+	out->x = a->x / b->x;
+	out->y = a->y / b->y;
+	out->z = a->z / b->z;
+	out->w = a->w / b->w;
+}
 }
 void divVec4f(Clim_vector4f *out, const Clim_vector4f *a, const Clim_vector4f *b){
-    if(b->x ==0 || b->y ==0 || b->z == 0 || b->w ==0)
-    {
-      b->x =1;
-      b->y =1;
-      b->z =1;
-			b->w =1;
-    }
-
-    out->x = a->x / b->x;
-    out->y = a->y / b->y;
-    out->z = a->z / b->z;
-		out->w = a->w / b->w;
+	if(b->x ==0 || b->y ==0 || b->z == 0 || b->w ==0)
+	{
+		out->x = a->x / b->x+1;
+		out->y = a->y / b->y+1;
+		out->z = a->z / b->z+1;
+		out->w = a->w / b->w+1;
+	}else{
+	out->x = a->x / b->x;
+	out->y = a->y / b->y;
+	out->z = a->z / b->z;
+	out->w = a->w / b->w;
+}
 }
 
 
 
 float magnitude4i(Clim_vector4i a){
-
-	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2)+pow(a.w,2),.5f);
+	float x = a.x * a.x;
+	float y = a.y * a.y;
+	float z = a.z * a.z;
+	float w = a.w * a.w;
+	return sqrt(x+y+z+w);
 }
 float magnitude4u(Clim_vector4u a){
-	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2)+pow(a.w,2),.5f);
+	float x = a.x * a.x;
+	float y = a.y * a.y;
+	float z = a.z * a.z;
+	float w = a.w * a.w;
+	return sqrt(x+y+z+w);
 }
 float magnitude4f(Clim_vector4f a){
-	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2)+pow(a.w,2),.5f);
+	float x = a.x * a.x;
+	float y = a.y * a.y;
+	float z = a.z * a.z;
+	float w = a.w * a.w;
+	return sqrt(x+y+z+w);
 }
 
 void lerp4i(Clim_vector4i *out,const Clim_vector4i *a, const Clim_vector4i *b,const float percent){
@@ -173,7 +184,7 @@ void lerp4i(Clim_vector4i *out,const Clim_vector4i *a, const Clim_vector4i *b,co
 }
 void lerp4f(Clim_vector4f* out, const Clim_vector4f *a,const Clim_vector4f *b,const float percent){
   Clim_vector4f i, j,k;
-  subVec4i(&i,b,a);
+  subVec4f(&i,b,a);
   j.x = percent/100.0f;
   j.y = percent/100.0f;
   j.z = percent/100.0f;
@@ -185,20 +196,38 @@ void lerp4f(Clim_vector4f* out, const Clim_vector4f *a,const Clim_vector4f *b,co
 //Min/Max Functions//
 
 Clim_vector4i *Max4i(Clim_vector4i *a,Clim_vector4i *b){
-    return ((magnitude4i(a) > magnitude4i(b)) ? a : b);
+    if(magnitude4i(*a) > magnitude4i(*b))
+      return a;
+
+    return b;
 }
 Clim_vector4u *Max4u(Clim_vector4u *a,Clim_vector4u *b){
-    return ((magnitude4u(a) > magnitude4u(b)) ? a : b);
+  if(magnitude4u(*a) > magnitude4u(*b))
+    return a;
+
+  return b;
 }
 Clim_vector4f *Max4f(Clim_vector4f *a,Clim_vector4f *b){
-    return ((magnitude4f(a) > magnitude4f(b)) ? a : b);
+  if(magnitude4f(*a) > magnitude4f(*b))
+    return a;
+
+  return b;
 }
 Clim_vector4i *Min4i(Clim_vector4i *a,Clim_vector4i *b){
-    return ((magnitude4i(a) < magnitude4i(b)) ? a : b);
+  if(magnitude4i(*a) < magnitude4i(*b))
+    return a;
+
+  return b;
 }
 Clim_vector4u *Min4u(Clim_vector4u *a,Clim_vector4u *b){
-    return ((magnitude4u(a) < magnitude4u(b)) ? a : b);
+  if(magnitude4u(*a) > magnitude4u(*b))
+    return a;
+
+  return b;
 }
 Clim_vector4f *Min4f(Clim_vector4f *a,Clim_vector4f *b){
-    return ((magnitude4f(a) < magnitude4f(b)) ? a : b);
+  if(magnitude4f(*a)< magnitude4f(*b))
+    return a;
+
+  return b;
 }

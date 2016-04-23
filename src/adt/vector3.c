@@ -1,5 +1,6 @@
 #include "adt/vector3.h"
 #include <stdlib.h>
+#include <math.h>
 
 //MallocFunctions//
 Clim_vector3i *mallocVec3i(int ox, int oy,int oz){
@@ -92,52 +93,61 @@ void multVec3f(Clim_vector3f *out, const Clim_vector3f *a, const Clim_vector3f *
 //Division functions//
 //Caution, all disolve into a Vector3f, since dividing usually turns into decimal places.//
 void divVec3i(Clim_vector3i *out, const Clim_vector3i *a, const Clim_vector3i *b){
-    if(b->x ==0 || b->y ==0 || b->z == 0)
-    {
-      b->x =1;
-      b->y =1;
-      b->z =1;
-    }
-
-    out->x = a->x / b->x;
-    out->y = a->y / b->y;
-    out->z = a->z / b->z;
+  if(b->x ==0 || b->y ==0 || b->z == 0)
+  {
+    out->x = a->x / b->x+1;
+    out->y = a->y / b->y+1;
+    out->z = a->z / b->z+1;
+  }else{
+  out->x = a->x / b->x;
+  out->y = a->y / b->y;
+  out->z = a->z / b->z;
+}
 }
 void divVec3u(Clim_vector3u *out, const Clim_vector3u *a, const Clim_vector3u *b){
-    if(b->x ==0 || b->y ==0 || b->z == 0)
-    {
-      b->x =1;
-      b->y =1;
-      b->z =1;
-    }
-
-    out->x = a->x / b->x;
-    out->y = a->y / b->y;
-    out->z = a->z / b->z;
+  if(b->x ==0 || b->y ==0 || b->z == 0)
+  {
+    out->x = a->x / b->x+1;
+    out->y = a->y / b->y+1;
+    out->z = a->z / b->z+1;
+  }else{
+  out->x = a->x / b->x;
+  out->y = a->y / b->y;
+  out->z = a->z / b->z;
+}
 }
 void divVec3f(Clim_vector3f *out, const Clim_vector3f *a, const Clim_vector3f *b){
     if(b->x ==0 || b->y ==0 || b->z == 0)
     {
-      b->x =1;
-      b->y =1;
-      b->z =1;
-    }
-
+      out->x = a->x / b->x+1;
+      out->y = a->y / b->y+1;
+      out->z = a->z / b->z+1;
+    }else{
     out->x = a->x / b->x;
     out->y = a->y / b->y;
     out->z = a->z / b->z;
+  }
 }
 
 //length functions//
 //All disolve into a float//
 float magnitude3i(Clim_vector3i a){
-  	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2),.5f);
+    float x = a.x * a.x;
+    float y = a.y * a.y;
+    float z = a.z * a.z;
+    return sqrt(x+y+z);
 }
 float magnitude3u(Clim_vector3u a){
-  	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2),.5f);
+  float x = a.x * a.x;
+  float y = a.y * a.y;
+  float z = a.z * a.z;
+  return sqrt(x+y+z);
 }
 float magnitude3f(Clim_vector3f a){
-  	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2),.5f);
+  float x = a.x * a.x;
+  float y = a.y * a.y;
+  float z = a.z * a.z;
+  return sqrt(x+y+z);
 }
 
 void lerp3i(Clim_vector3i *out,const Clim_vector3i *a, const Clim_vector3i *b,const float percent){
@@ -151,7 +161,7 @@ void lerp3i(Clim_vector3i *out,const Clim_vector3i *a, const Clim_vector3i *b,co
 }
 void lerp3f(Clim_vector3f* out, const Clim_vector3f *a,const Clim_vector3f *b,const float percent){
   Clim_vector3f i, j,k;
-  subVec3i(&i,b,a);
+  subVec3f(&i,b,a);
   j.x = percent/100.0f;
   j.y = percent/100.0f;
   j.z = percent/100.0f;
@@ -162,20 +172,38 @@ void lerp3f(Clim_vector3f* out, const Clim_vector3f *a,const Clim_vector3f *b,co
 //Min/Max Functions//
 
 Clim_vector3i *Max3i(Clim_vector3i *a,Clim_vector3i *b){
-    return ((magnitude3i(a) > magnitude3i(b)) ? a : b);
+    if(magnitude3i(*a) > magnitude3i(*b))
+      return a;
+
+    return b;
 }
 Clim_vector3u *Max3u(Clim_vector3u *a,Clim_vector3u *b){
-    return ((magnitude3u(a) > magnitude3u(b)) ? a : b);
+  if(magnitude3u(*a) > magnitude3u(*b))
+    return a;
+
+  return b;
 }
 Clim_vector3f *Max3f(Clim_vector3f *a,Clim_vector3f *b){
-    return ((magnitude3f(a) > magnitude3f(b)) ? a : b);
+  if(magnitude3f(*a) > magnitude3f(*b))
+    return a;
+
+  return b;
 }
 Clim_vector3i *Min3i(Clim_vector3i *a,Clim_vector3i *b){
-    return ((magnitude3i(a) < magnitude3i(b)) ? a : b);
+  if(magnitude3i(*a) < magnitude3i(*b))
+    return a;
+
+  return b;
 }
 Clim_vector3u *Min3u(Clim_vector3u *a,Clim_vector3u *b){
-    return ((magnitude3u(a) < magnitude3u(b)) ? a : b);
+  if(magnitude3u(*a) > magnitude3u(*b))
+    return a;
+
+  return b;
 }
 Clim_vector3f *Min3f(Clim_vector3f *a,Clim_vector3f *b){
-    return ((magnitude3f(a) < magnitude3f(b)) ? a : b);
+  if(magnitude3f(*a)< magnitude3f(*b))
+    return a;
+
+  return b;
 }
