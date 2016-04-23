@@ -40,25 +40,27 @@ Clim_vector2c *mallocVec2c(char ox,char oy);
 Clim_vector2g *mallocVec2g(void *ox, void *oy);
 
 //Addition functions//
-Clim_vector2i *addVec2i(Clim_vector2i *a,Clim_vector2i *b);
-Clim_vector2u *addVec2u(Clim_vector2u *a,Clim_vector2u *b);
-Clim_vector2f *addVec2f(Clim_vector2f *a,Clim_vector2f *b);
+void addVec2i(Clim_vector2i *out, const Clim_vector2i *a, const Clim_vector2i *b);
+void addVec2u(Clim_vector2u *out, const Clim_vector2u *a, const Clim_vector2u *b);
+void addVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *b);
 
 //Subtractive functions//
-Clim_vector2i *addVec2i(Clim_vector2i *a,Clim_vector2i *b);
-Clim_vector2u *addVec2u(Clim_vector2u *a,Clim_vector2u *b);
-Clim_vector2f *addVec2f(Clim_vector2f *a,Clim_vector2f *b);
+void subVec2i(Clim_vector2i *out, const Clim_vector2i *a, const Clim_vector2i *b);
+void subVec2u(Clim_vector2u *out, const Clim_vector2u *a, const Clim_vector2u *b);
+void subVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *b);
 
 //Multiplicative functions//
-Clim_vector2i *multiplyVec2i(Clim_vector2i *a,Clim_vector2i *b);
-Clim_vector2u *multiplyVec2u(Clim_vector2u *a,Clim_vector2u *b);
-Clim_vector2f *multiplyVec2f(Clim_vector2f *a,Clim_vector2f *b);
+void multVec2i(Clim_vector2i *out, const Clim_vector2i *a, const Clim_vector2i *b);
+void multVec2u(Clim_vector2u *out, const Clim_vector2u *a, const Clim_vector2u *b);
+void multVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *b);
 
 //Division functions//
-//Caution, all disolve into a Vector2f, since dividing usually turns into decimal places.//
-Clim_vector2f *divideVec2i(Clim_vector2i *a,Clim_vector2i *b);
-Clim_vector2f *divideVec2u(Clim_vector2u *a,Clim_vector2u *b);
-Clim_vector2f *divideVec2f(Clim_vector2f *a,Clim_vector2f *b);
+//Caution, all disolve into a Vector2f, since dividing usually turns into decimal places.
+//Caution, if you try to divide by zero, it will automatically set b to 1,1 and output
+//				 will return a.
+void divVec2i(Clim_vector2i *out, const Clim_vector2i *a, const Clim_vector2i *b);
+void divVec2u(Clim_vector2u *out, const Clim_vector2u *a, const Clim_vector2u *b);
+void divVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *b);
 
 //length functions//
 //All disolve into a float//
@@ -67,8 +69,8 @@ float magnitude2u(Clim_vector2u a);
 float magnitude2f(Clim_vector2f a);
 
 //lerp functions//
-Clim_vector2i *lerp2i(Clim_vector2i *a, Clim_vector2i *b, float percent);
-Clim_vector2f *lerp2f(Clim_vector2f *a, Clim_vector2f *b, float percent);
+void lerp2i(Clim_vector2i *out,const Clim_vector2i *a, const Clim_vector2i *b,const float percent);
+void lerp2f(Clim_vector2f* out, const Clim_vector2f *a,const Clim_vector2f *b,const float percent);
 
 
 //Min/Max Functions//

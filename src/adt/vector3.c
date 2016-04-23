@@ -39,46 +39,143 @@ Clim_vector3g *mallocVec3g(void *ox, void *oy, void *oz){
 }
 
 //Addition functions//
-Clim_vector3i *addVec3i(Clim_vector3i *a,Clim_vector3i *b){
-	return mallocVec3i((a->x + b->x), (a->y +b->y), (a->z + b->z));
+void addVec3i(Clim_vector3i *out, const Clim_vector3i *a, const Clim_vector3i *b){
+    out->x = a->x + b->x;
+    out->y = a->y + b->y;
+    out->z = a->z + b->z;
 }
-Clim_vector3u *addVec3u(Clim_vector3u *a,Clim_vector3u *b){
-	return mallocVec3u((a->x + b->x), (a->y + b->y), (a->z + b->z));
+void addVec3u(Clim_vector3u *out, const Clim_vector3u *a, const Clim_vector3u *b){
+    out->x = a->x + b->x;
+    out->y = a->y + b->y;
+    out->z = a->z + b->z;
 }
-Clim_vector3f *addVec3f(Clim_vector3f *a,Clim_vector3f *b){
-	return mallocVec3f((a->x + b->x), (a->y + b->y), (a->z + b->z));
+void addVec3f(Clim_vector3f *out, const Clim_vector3f *a, const Clim_vector3f *b){
+    out->x = a->x + b->x;
+    out->y = a->y + b->y;
+    out->z = a->z + b->z;
 }
 
 //Subtractive functions//
-Clim_vector3i *subVec3i(Clim_vector3i *a,Clim_vector3i *b){
-	return mallocVec3i((a->x - b->x), (a->y - b->y), (a->z - b->z));
+void subVec3i(Clim_vector3i *out, const Clim_vector3i *a, const Clim_vector3i *b){
+    out->x = a->x - b->x;
+    out->y = a->y - b->y;
+    out->z = a->z - b->z;
 }
-Clim_vector3u *subVec3u(Clim_vector3u *a,Clim_vector3u *b){
-	return mallocVec3u((a->x - b->x), (a->y - b->y), (a->z - b->z));
+void subVec3u(Clim_vector3u *out, const Clim_vector3u *a, const Clim_vector3u *b){
+    out->x = a->x - b->x;
+    out->y = a->y - b->y;
+    out->z = a->z - b->z;
 }
-Clim_vector3f *subVec3f(Clim_vector3f *a,Clim_vector3f *b){
-	return mallocVec3f((a->x - b->x), (a->y - b->y), (a->z - b->z));
+void subVec3f(Clim_vector3f *out, const Clim_vector3f *a, const Clim_vector3f *b){
+    out->x = a->x - b->x;
+    out->y = a->y - b->y;
+    out->z = a->z - b->z;
 }
 
 //Multiplicative functions//
-Clim_vector3i *multiplyVec3i(Clim_vector3i *a,Clim_vector3i *b){
-	return mallocVec3i((a->x * b->x), (a->y * b->y), (a->z * b->z));
+void multVec3i(Clim_vector3i *out, const Clim_vector3i *a, const Clim_vector3i *b){
+    out->x = a->x * b->x;
+    out->y = a->y * b->y;
+    out->z = a->z * b->z;
 }
-Clim_vector3u *multiplyVec3u(Clim_vector3u *a,Clim_vector3u *b){
-	return mallocVec3u((a->x * b->x), (a->y * b->y), (a->z * b->z));
+void multVec3u(Clim_vector3u *out, const Clim_vector3u *a, const Clim_vector3u *b){
+    out->x = a->x * b->x;
+    out->y = a->y * b->y;
+    out->z = a->z * b->z;
 }
-Clim_vector3f *multiplyVec3f(Clim_vector3f *a,Clim_vector3f *b){
-	return mallocVec3f((a->x * b->x), (a->y * b->y), (a->z * b->z));
+void multVec3f(Clim_vector3f *out, const Clim_vector3f *a, const Clim_vector3f *b){
+    out->x = a->x * b->x;
+    out->y = a->y * b->y;
+    out->z = a->z * b->z;
 }
 
 //Division functions//
-//Caution, all disolve into a vector3f, since dividing usually turns into decimal places.//
-Clim_vector3f *divideVec3i(Clim_vector3i *a,Clim_vector3i *b){
-	return mallocVec3f((a->x / b->x), (a->y / b->y), (a->z / b->z));
+//Caution, all disolve into a Vector3f, since dividing usually turns into decimal places.//
+void divVec3i(Clim_vector3i *out, const Clim_vector3i *a, const Clim_vector3i *b){
+    if(b->x ==0 || b->y ==0 || b->z == 0)
+    {
+      b->x =1;
+      b->y =1;
+      b->z =1;
+    }
+
+    out->x = a->x / b->x;
+    out->y = a->y / b->y;
+    out->z = a->z / b->z;
 }
-Clim_vector3f *divideVec3u(Clim_vector3u *a,Clim_vector3u *b){
-	return mallocVec3f((a->x / b->x), (a->y / b->y), (a->z / b->z));
+void divVec3u(Clim_vector3u *out, const Clim_vector3u *a, const Clim_vector3u *b){
+    if(b->x ==0 || b->y ==0 || b->z == 0)
+    {
+      b->x =1;
+      b->y =1;
+      b->z =1;
+    }
+
+    out->x = a->x / b->x;
+    out->y = a->y / b->y;
+    out->z = a->z / b->z;
 }
-Clim_vector3f *divideVec3f(Clim_vector3f *a,Clim_vector3f *b){
-	return mallocVec3f((a->x / b->x), (a->y / b->y), (a->z / b->z));
+void divVec3f(Clim_vector3f *out, const Clim_vector3f *a, const Clim_vector3f *b){
+    if(b->x ==0 || b->y ==0 || b->z == 0)
+    {
+      b->x =1;
+      b->y =1;
+      b->z =1;
+    }
+
+    out->x = a->x / b->x;
+    out->y = a->y / b->y;
+    out->z = a->z / b->z;
+}
+
+//length functions//
+//All disolve into a float//
+float magnitude3i(Clim_vector3i a){
+  	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2),.5f);
+}
+float magnitude3u(Clim_vector3u a){
+  	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2),.5f);
+}
+float magnitude3f(Clim_vector3f a){
+  	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2),.5f);
+}
+
+void lerp3i(Clim_vector3i *out,const Clim_vector3i *a, const Clim_vector3i *b,const float percent){
+  Clim_vector3i i, j,k;
+  subVec3i(&i,b,a);
+  j.x = percent/100;
+  j.y = percent/100;
+  j.z = percent/100;
+  multVec3i(&k,&i,&j);
+  addVec3i(out,a,&k);
+}
+void lerp3f(Clim_vector3f* out, const Clim_vector3f *a,const Clim_vector3f *b,const float percent){
+  Clim_vector3f i, j,k;
+  subVec3i(&i,b,a);
+  j.x = percent/100.0f;
+  j.y = percent/100.0f;
+  j.z = percent/100.0f;
+  multVec3f(&k,&i,&j);
+  addVec3f(out,a,&k);
+}
+
+//Min/Max Functions//
+
+Clim_vector3i *Max3i(Clim_vector3i *a,Clim_vector3i *b){
+    return ((magnitude3i(a) > magnitude3i(b)) ? a : b);
+}
+Clim_vector3u *Max3u(Clim_vector3u *a,Clim_vector3u *b){
+    return ((magnitude3u(a) > magnitude3u(b)) ? a : b);
+}
+Clim_vector3f *Max3f(Clim_vector3f *a,Clim_vector3f *b){
+    return ((magnitude3f(a) > magnitude3f(b)) ? a : b);
+}
+Clim_vector3i *Min3i(Clim_vector3i *a,Clim_vector3i *b){
+    return ((magnitude3i(a) < magnitude3i(b)) ? a : b);
+}
+Clim_vector3u *Min3u(Clim_vector3u *a,Clim_vector3u *b){
+    return ((magnitude3u(a) < magnitude3u(b)) ? a : b);
+}
+Clim_vector3f *Min3f(Clim_vector3f *a,Clim_vector3f *b){
+    return ((magnitude3f(a) < magnitude3f(b)) ? a : b);
 }

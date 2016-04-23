@@ -44,58 +44,161 @@ Clim_vector4g *mallocvec4g(void *ox, void *oy, void *oz, void *ow){
 }
 
 //Addition functions//
-Clim_vector4i *addvec4i(Clim_vector4i *a,Clim_vector4i *b){
-	return mallocvec4i((a->x + b->x), (a->y +b->y),(a->z +b->z),(a->w +b->w));
+void addVec4i(Clim_vector4i *out, const Clim_vector4i *a, const Clim_vector4i *b){
+    out->x = a->x + b->x;
+    out->y = a->y + b->y;
+    out->z = a->z + b->z;
+		out->w = a->w + b->w;
 }
-Clim_vector4u *addvec4u(Clim_vector4u *a,Clim_vector4u *b){
-	return mallocvec4u((a->x + b->x), (a->y + b->y),(a->z +b->z),(a->w +b->w));
+void addVec4u(Clim_vector4u *out, const Clim_vector4u *a, const Clim_vector4u *b){
+    out->x = a->x + b->x;
+    out->y = a->y + b->y;
+    out->z = a->z + b->z;
+		out->w = a->w + b->w;
 }
-Clim_vector4f *addvec4f(Clim_vector4f *a,Clim_vector4f *b){
-	return mallocvec4f((a->x + b->x), (a->y + b->y),(a->z +b->z),(a->w +b->w));
+void addVec4f(Clim_vector4f *out, const Clim_vector4f *a, const Clim_vector4f *b){
+    out->x = a->x + b->x;
+    out->y = a->y + b->y;
+    out->z = a->z + b->z;
+		out->w = a->w + b->w;
 }
 
 //Subtractive functions//
-Clim_vector4i *subvec4i(Clim_vector4i *a,Clim_vector4i *b){
-	return mallocvec4i((a->x - b->x), (a->y - b->y), (a->z - b->z), (a->w - b->w));
+void subVec4i(Clim_vector4i *out, const Clim_vector4i *a, const Clim_vector4i *b){
+    out->x = a->x - b->x;
+    out->y = a->y - b->y;
+    out->z = a->z - b->z;
+		out->w = a->w - b->w;
 }
-Clim_vector4u *subvec4u(Clim_vector4u *a,Clim_vector4u *b){
-	return mallocvec4u((a->x - b->x), (a->y - b->y), (a->z - b->z), (a->w - b->w));
+void subVec4u(Clim_vector4u *out, const Clim_vector4u *a, const Clim_vector4u *b){
+    out->x = a->x - b->x;
+    out->y = a->y - b->y;
+    out->z = a->z - b->z;
+		out->w = a->w - b->w;
 }
-Clim_vector4f *subvec4f(Clim_vector4f *a,Clim_vector4f *b){
-	return mallocvec4f((a->x - b->x), (a->y - b->y), (a->z - b->z), (a->w - b->w));
+void subVec4f(Clim_vector4f *out, const Clim_vector4f *a, const Clim_vector4f *b){
+    out->x = a->x - b->x;
+    out->y = a->y - b->y;
+    out->z = a->z - b->z;
+		out->w = a->w - b->w;
 }
 
 //Multiplicative functions//
-Clim_vector4i *multiplyvec4i(Clim_vector4i *a,Clim_vector4i *b){
-	return mallocvec4i((a->x * b->x), (a->y * b->y), (a->z * b->z), (a->w * b->w));
+void multVec4i(Clim_vector4i *out, const Clim_vector4i *a, const Clim_vector4i *b){
+    out->x = a->x * b->x;
+    out->y = a->y * b->y;
+    out->z = a->z * b->z;
+		out->w = a->w * b->w;
 }
-Clim_vector4u *multiplyvec4u(Clim_vector4u *a,Clim_vector4u *b){
-	return mallocvec4u((a->x * b->x), (a->y * b->y), (a->z * b->z), (a->w * b->w));
+void multVec4u(Clim_vector4u *out, const Clim_vector4u *a, const Clim_vector4u *b){
+    out->x = a->x * b->x;
+    out->y = a->y * b->y;
+    out->z = a->z * b->z;
+		out->w = a->w * b->w;
 }
-Clim_vector4f *multiplyvec4f(Clim_vector4f *a,Clim_vector4f *b){
-	return mallocvec4f((a->x * b->x), (a->y * b->y), (a->z * b->z), (a->w * b->w));
+void multVec4f(Clim_vector4f *out, const Clim_vector4f *a, const Clim_vector4f *b){
+    out->x = a->x * b->x;
+    out->y = a->y * b->y;
+    out->z = a->z * b->z;
+		out->w = a->w * b->w;
 }
 
 //Division functions//
-//Caution, all disolve into a vector4f, since dividing usually turns into decimal places.//
-Clim_vector4f *dividevec4i(Clim_vector4i *a,Clim_vector4i *b){
-	return mallocvec4f((a->x / b->x), (a->y / b->y), (a->z / b->z), (a->w / b->w));
+//Caution, all disolve into a Vector4f, since dividing usually turns into decimal places.//
+void divVec4i(Clim_vector4i *out, const Clim_vector4i *a, const Clim_vector4i *b){
+    if(b->x ==0 || b->y ==0 || b->z == 0 || b->w ==0)
+    {
+      b->x =1;
+      b->y =1;
+      b->z =1;
+			b->w =1;
+    }
+
+    out->x = a->x / b->x;
+    out->y = a->y / b->y;
+    out->z = a->z / b->z;
+		out->w = a->w / b->w;
 }
-Clim_vector4f *dividevec4u(Clim_vector4u *a,Clim_vector4u *b){
-	return mallocvec4f((a->x / b->x), (a->y / b->y), (a->z / b->z), (a->w / b->w));
+void divVec4u(Clim_vector4u *out, const Clim_vector4u *a, const Clim_vector4u *b){
+    if(b->x ==0 || b->y ==0 || b->z == 0 || b->w ==0)
+    {
+      b->x =1;
+      b->y =1;
+      b->z =1;
+			b->w =1;
+    }
+
+    out->x = a->x / b->x;
+    out->y = a->y / b->y;
+    out->z = a->z / b->z;
+		out->w = a->w / b->w;
 }
-Clim_vector4f *dividevec4f(Clim_vector4f *a,Clim_vector4f *b){
-	return mallocvec4f((a->x / b->x), (a->y / b->y), (a->z / b->z), (a->w / b->w));
+void divVec4f(Clim_vector4f *out, const Clim_vector4f *a, const Clim_vector4f *b){
+    if(b->x ==0 || b->y ==0 || b->z == 0 || b->w ==0)
+    {
+      b->x =1;
+      b->y =1;
+      b->z =1;
+			b->w =1;
+    }
+
+    out->x = a->x / b->x;
+    out->y = a->y / b->y;
+    out->z = a->z / b->z;
+		out->w = a->w / b->w;
 }
+
 
 
 float magnitude4i(Clim_vector4i a){
 
-	return pow(pow(a.x,4)+pow(a.y,4)+pow(a.z,4)+pow(a.w,4),.25f);
+	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2)+pow(a.w,2),.5f);
 }
 float magnitude4u(Clim_vector4u a){
-	return pow(pow(a.x,4)+pow(a.y,4)+pow(a.z,4)+pow(a.w,4),.25f);
+	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2)+pow(a.w,2),.5f);
 }
 float magnitude4f(Clim_vector4f a){
-	return pow(pow(a.x,4)+pow(a.y,4)+pow(a.z,4)+pow(a.w,4),.25f);
+	return pow(pow(a.x,2)+pow(a.y,2)+pow(a.z,2)+pow(a.w,2),.5f);
+}
+
+void lerp4i(Clim_vector4i *out,const Clim_vector4i *a, const Clim_vector4i *b,const float percent){
+  Clim_vector4i i, j,k;
+  subVec4i(&i,b,a);
+  j.x = percent/100;
+  j.y = percent/100;
+  j.z = percent/100;
+	j.z = percent/100;
+  multVec4i(&k,&i,&j);
+  addVec4i(out,a,&k);
+}
+void lerp4f(Clim_vector4f* out, const Clim_vector4f *a,const Clim_vector4f *b,const float percent){
+  Clim_vector4f i, j,k;
+  subVec4i(&i,b,a);
+  j.x = percent/100.0f;
+  j.y = percent/100.0f;
+  j.z = percent/100.0f;
+	j.w = percent/100.0f;
+  multVec4f(&k,&i,&j);
+  addVec4f(out,a,&k);
+}
+
+//Min/Max Functions//
+
+Clim_vector4i *Max4i(Clim_vector4i *a,Clim_vector4i *b){
+    return ((magnitude4i(a) > magnitude4i(b)) ? a : b);
+}
+Clim_vector4u *Max4u(Clim_vector4u *a,Clim_vector4u *b){
+    return ((magnitude4u(a) > magnitude4u(b)) ? a : b);
+}
+Clim_vector4f *Max4f(Clim_vector4f *a,Clim_vector4f *b){
+    return ((magnitude4f(a) > magnitude4f(b)) ? a : b);
+}
+Clim_vector4i *Min4i(Clim_vector4i *a,Clim_vector4i *b){
+    return ((magnitude4i(a) < magnitude4i(b)) ? a : b);
+}
+Clim_vector4u *Min4u(Clim_vector4u *a,Clim_vector4u *b){
+    return ((magnitude4u(a) < magnitude4u(b)) ? a : b);
+}
+Clim_vector4f *Min4f(Clim_vector4f *a,Clim_vector4f *b){
+    return ((magnitude4f(a) < magnitude4f(b)) ? a : b);
 }

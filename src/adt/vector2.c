@@ -34,50 +34,81 @@ Clim_vector2g *mallocvec2g(void *ox, void *oy){
 }
 
 //Addition functions//
-Clim_vector2i *addvec2i(Clim_vector2i *a,Clim_vector2i *b){
-	return mallocvec2i((a->x + b->x), (a->y +b->y));
+void addVec2i(Clim_vector2i *out, const Clim_vector2i *a, const Clim_vector2i *b){
+    out->x = a->x + b->x;
+    out->y = a->y + b->y;
 }
-Clim_vector2u *addvec2u(Clim_vector2u *a,Clim_vector2u *b){
-	return mallocvec2u((a->x + b->x), (a->y + b->y));
+void addVec2u(Clim_vector2u *out, const Clim_vector2u *a, const Clim_vector2u *b){
+    out->x = a->x + b->x;
+    out->y = a->y + b->y;
 }
-Clim_vector2f *addvec2f(Clim_vector2f *a,Clim_vector2f *b){
-	return mallocvec2f((a->x + b->x), (a->y + b->y));
+void addVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *b){
+    out->x = a->x + b->x;
+    out->y = a->y + b->y;
 }
 
 //Subtractive functions//
-Clim_vector2i *subvec2i(Clim_vector2i *a,Clim_vector2i *b){
-	return mallocvec2i((a->x - b->x), (a->y - b->y));
+void subVec2i(Clim_vector2i *out, const Clim_vector2i *a, const Clim_vector2i *b){
+    out->x = a->x - b->x;
+    out->y = a->y - b->y;
 }
-Clim_vector2u *subvec2u(Clim_vector2u *a,Clim_vector2u *b){
-	return mallocvec2u((a->x - b->x), (a->y - b->y));
+void subVec2u(Clim_vector2u *out, const Clim_vector2u *a, const Clim_vector2u *b){
+    out->x = a->x - b->x;
+    out->y = a->y - b->y;
 }
-Clim_vector2f *subvec2f(Clim_vector2f *a,Clim_vector2f *b){
-	return mallocvec2f((a->x - b->x), (a->y - b->y));
+void subVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *b){
+    out->x = a->x - b->x;
+    out->y = a->y - b->y;
 }
 
 //Multiplicative functions//
-Clim_vector2i *multiplyvec2i(Clim_vector2i *a,Clim_vector2i *b){
-	return mallocvec2i((a->x * b->x), (a->y * b->y));
+void multVec2i(Clim_vector2i *out, const Clim_vector2i *a, const Clim_vector2i *b){
+    out->x = a->x * b->x;
+    out->y = a->y * b->y;
 }
-Clim_vector2u *multiplyvec2u(Clim_vector2u *a,Clim_vector2u *b){
-	return mallocvec2u((a->x * b->x), (a->y * b->y));
+void multVec2u(Clim_vector2u *out, const Clim_vector2u *a, const Clim_vector2u *b){
+    out->x = a->x * b->x;
+    out->y = a->y * b->y;
 }
-Clim_vector2f *multiplyvec2f(Clim_vector2f *a,Clim_vector2f *b){
-	return mallocvec2f((a->x * b->x), (a->y * b->y));
+void multVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *b){
+    out->x = a->x * b->x;
+    out->y = a->y * b->y;
 }
 
 //Division functions//
-//Caution, all disolve into a vector2f, since dividing usually turns into decimal places.//
-Clim_vector2f *dividevec2i(Clim_vector2i *a,Clim_vector2i *b){
-	return mallocvec2f((a->x / b->x), (a->y / b->y));
+//Caution, all disolve into a Vector2f, since dividing usually turns into decimal places.//
+void divVec2i(Clim_vector2i *out, const Clim_vector2i *a, const Clim_vector2i *b){
+    if(b->x ==0 || b->y ==0)
+    {
+      b->x =1;
+      b->y =1;
+    }
+
+    out->x = a->x / b->x;
+    out->y = a->y / b->y;
 }
-Clim_vector2f *dividevec2u(Clim_vector2u *a,Clim_vector2u *b){
-	return mallocvec2f((a->x / b->x), (a->y / b->y));
+void divVec2u(Clim_vector2u *out, const Clim_vector2u *a, const Clim_vector2u *b){
+    if(b->x ==0 || b->y ==0)
+    {
+      b->x =1;
+      b->y =1;
+    }
+
+    out->x = a->x / b->x;
+    out->y = a->y / b->y;
 }
-Clim_vector2f *dividevec2f(Clim_vector2f *a,Clim_vector2f *b){
-	return mallocvec2f((a->x / b->x), (a->y / b->y));
+void divVec2f(Clim_vector2f *out, const Clim_vector2f *a, const Clim_vector2f *b){
+    if(b->x ==0 || b->y ==0)
+    {
+      b->x =1.0f;
+      b->y =1.0f;
+    }
+
+    out->x = a->x / b->x;
+    out->y = a->y / b->y;
 }
 
+// magnitude functions
 
 float magnitude2i(Clim_vector2i a){
 	float x = a.x * a.x;
@@ -93,4 +124,44 @@ float magnitude2f(Clim_vector2f a){
 	float x = a.x * a.x;
 	float y = a.y * a.y;
 	return sqrt(x+y);
+}
+
+//lerp functions//
+void lerp2i(Clim_vector2i *out,const Clim_vector2i *a, const Clim_vector2i *b,const float percent){
+  Clim_vector2i i, j,k;
+  subVec2i(&i,b,a);
+  j.x = percent/100;
+  j.y = percent/100;
+  multVec2i(&k,&i,&j);
+  addVec2i(out,a,&k);
+}
+void lerp2f(Clim_vector2f* out, const Clim_vector2f *a,const Clim_vector2f *b,const float percent){
+  Clim_vector2f i, j,k;
+  subVec2i(&i,b,a);
+  j.x = percent/100.0f;
+  j.y = percent/100.0f;
+  multVec2f(&k,&i,&j);
+  addVec2f(out,a,&k);
+}
+
+
+//Min/Max Functions//
+
+Clim_vector2i *Max2i(Clim_vector2i *a,Clim_vector2i *b){
+    return ((magnitude2i(a) > magnitude2i(b)) ? a : b);
+}
+Clim_vector2u *Max2u(Clim_vector2u *a,Clim_vector2u *b){
+    return ((magnitude2u(a) > magnitude2u(b)) ? a : b);
+}
+Clim_vector2f *Max2f(Clim_vector2f *a,Clim_vector2f *b){
+    return ((magnitude2f(a) > magnitude2f(b)) ? a : b);
+}
+Clim_vector2i *Min2i(Clim_vector2i *a,Clim_vector2i *b){
+    return ((magnitude2i(a) < magnitude2i(b)) ? a : b);
+}
+Clim_vector2u *Min2u(Clim_vector2u *a,Clim_vector2u *b){
+    return ((magnitude2u(a) < magnitude2u(b)) ? a : b);
+}
+Clim_vector2f *Min2f(Clim_vector2f *a,Clim_vector2f *b){
+    return ((magnitude2f(a) < magnitude2f(b)) ? a : b);
 }
