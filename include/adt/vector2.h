@@ -82,6 +82,27 @@ Clim_vector2i *Min2i(Clim_vector2i *a,Clim_vector2i *b);
 Clim_vector2u *Min2u(Clim_vector2u *a,Clim_vector2u *b);
 Clim_vector2f *Min2f(Clim_vector2f *a,Clim_vector2f *b);
 
+//Misc Functions//
+void Rotate2f(Clim_vector2f *out, const Clim_vector2f *vec,float degree);
+inline float dotProducti(const Clim_vector2i *a,const Clim_vector2i *b){
+	return a->x * b->x + a->y * b->y;
+}
+inline float dotProductu(const Clim_vector2u *a,const Clim_vector2u *b){
+	return a->x * b->x + a->y * b->y;
+}
+inline float dotProductf(const Clim_vector2f *a,const Clim_vector2f *b){
+	return a->x * b->x + a->y * b->y;
+}
+
+void projectVector2i(Clim_vector2i *out, const Clim_vector2i *project,
+                    const Clim_vector2i *onto);
+
+void projectVector2u(Clim_vector2u *out, const Clim_vector2u *project,
+                    const Clim_vector2u *onto);
+
+void projectVector2f(Clim_vector2f *out, const Clim_vector2f *project,
+                    const Clim_vector2f *onto);
+
 
 
 #endif

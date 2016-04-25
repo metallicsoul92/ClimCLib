@@ -31,6 +31,7 @@ $(LIB): $(OBJS)
 clean:
 	rm -Rf bin
 	find $(SOURCE_DIR) -name "*.o" -delete
+	find $(INCLUDE_DIR) -name "*.gch" -delete
 
 install:
 	mkdir -p $(PREFIX)/include/climclib

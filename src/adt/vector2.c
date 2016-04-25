@@ -1,4 +1,5 @@
 #include "adt/vector2.h"
+#include "utility/common.h"
 #include <stdlib.h>
 #include <math.h>
 //MallocFunctions//
@@ -183,3 +184,59 @@ Clim_vector2f *Min2f(Clim_vector2f *a,Clim_vector2f *b){
 
   return b;
 }
+
+//Misc Functions//
+void Rotate2f(Clim_vector2f *out, const Clim_vector2f *vec,float degree){
+	float radian = toRadians(degree);
+float sine = sinf(radian);
+float cosine = cosf(radian);
+out->x = vec->x * cosine - vec->y * sine;
+out->y = vec->x * sine + vec->y * cosine;
+}
+
+
+void projectVector2i(Clim_vector2i *out, const Clim_vector2i *project,
+                    const Clim_vector2i *onto){
+
+											float d = dotProducti(onto,onto);
+											if(0<d)
+											{
+												float dp = dotProducti(project,onto);
+												out->x =onto->x *(dp/d);
+												out->y =onto->y *(dp/d);
+											}else{
+												out->x =onto->x;
+												out->y = onto->y;
+											}
+										}
+
+void projectVector2u(Clim_vector2u *out, const Clim_vector2u *project,
+                    const Clim_vector2u *onto){
+
+											float d = dotProductu(onto,onto);
+											if(0<d)
+											{
+												float dp = dotProductu(project,onto);
+												out->x =onto->x *(dp/d);
+												out->y =onto->y *(dp/d);
+											}else{
+												out->x =onto->x;
+												out->y = onto->y;
+											}
+										}
+
+
+void projectVector2f(Clim_vector2f *out, const Clim_vector2f *project,
+                    const Clim_vector2f *onto){
+
+											float d = dotProductf(onto,onto);
+											if(0<d)
+											{
+												float dp = dotProductf(project,onto);
+												out->x =onto->x *(dp/d);
+												out->y =onto->y *(dp/d);
+											}else{
+												out->x =onto->x;
+												out->y = onto->y;
+											}
+										}

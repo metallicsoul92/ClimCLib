@@ -24,4 +24,4 @@ inline float toDegrees(float radians){
   return (float)(radians * (180.0f/M_PI));
 }
 
-#endif
+#endif //common.h
