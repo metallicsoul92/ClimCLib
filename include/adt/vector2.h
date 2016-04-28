@@ -84,13 +84,14 @@ Clim_vector2f *Min2f(Clim_vector2f *a,Clim_vector2f *b);
 
 //Misc Functions//
 void Rotate2f(Clim_vector2f *out, const Clim_vector2f *vec,float degree);
-inline float dotProducti(const Clim_vector2i *a,const Clim_vector2i *b){
+
+inline float dotProduct2i(const Clim_vector2i *a,const Clim_vector2i *b){
 	return a->x * b->x + a->y * b->y;
 }
-inline float dotProductu(const Clim_vector2u *a,const Clim_vector2u *b){
+inline float dotProduct2u(const Clim_vector2u *a,const Clim_vector2u *b){
 	return a->x * b->x + a->y * b->y;
 }
-inline float dotProductf(const Clim_vector2f *a,const Clim_vector2f *b){
+inline float dotProduct2f(const Clim_vector2f *a,const Clim_vector2f *b){
 	return a->x * b->x + a->y * b->y;
 }
 

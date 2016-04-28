@@ -4,6 +4,8 @@
 #include "adt/vector2.h"
 #include "adt/vector3.h"
 
+#include "utility/common.h"
+
 struct _linei2D{
   Clim_vector2i base; // position where the line begins
   Clim_vector2i direction; //direction line is pointing
@@ -31,12 +33,28 @@ struct _linef3D{
   Clim_vector3f direction;
 }
 
-typedef struct _linei2D Clim_Linei2D;
-typedef struct _lineu2D Clim_Lineu2D;
-typedef struct _linef2D Clim_Linef2D;
+typedef struct _linei2D Clim_linei2D;
+typedef struct _lineu2D Clim_lineu2D;
+typedef struct _linef2D Clim_linef2D;
 
-typedef struct _linei3D Clim_Linei3D;
-typedef struct _lineu3D Clim_Lineu3D;
-typedef struct _linef3D Clim_Linef3D;
+typedef struct _linei3D Clim_linei3D;
+typedef struct _lineu3D Clim_lineu3D;
+typedef struct _linef3D Clim_linef3D;
+
+cbool perpendicular2i(const Clim_,linei2D *a,const Clim_,linei2D *b);
+cbool perpendicular2u(const Clim_,lineu2D *a,const Clim_,lineu2D *b);
+cbool perpendicular2f(const Clim_,linef2D *a,const Clim_,linef2D *b);
+
+cbool perpendicular3i(const Clim_,linei3D *a,const Clim_,linei3D *b);
+cbool perpendicular3u(const Clim_,lineu3D *a,const Clim_,lineu3D *b);
+cbool perpendicular3f(const Clim_,linef3D *a,const Clim_,linef3D *b);
+
+cbool parallel2i(const Clim_,linei2D *a,const Clim_,linei2D *b);
+cbool parallel2u(const Clim_,lineu2D *a,const Clim_,lineu2D *b);
+cbool parallel2f(const Clim_,linef2D *a,const Clim_,linef2D *b);
+
+cbool parallel3i(const Clim_,linei3D *a,const Clim_,linei3D *b);
+cbool parallel3u(const Clim_,lineu3D *a,const Clim_,lineu3D *b);
+cbool parallel3f(const Clim_,linef3D *a,const Clim_,linef3D *b);
 
 #endif //line.h
