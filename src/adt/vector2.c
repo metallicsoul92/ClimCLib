@@ -198,10 +198,10 @@ out->y = vec->x * sine + vec->y * cosine;
 void projectVector2i(Clim_vector2i *out, const Clim_vector2i *project,
                     const Clim_vector2i *onto){
 
-											float d = dotProducti(onto,onto);
+											float d = dotProduct2i(onto,onto);
 											if(0<d)
 											{
-												float dp = dotProducti(project,onto);
+												float dp = dotProduct2i(project,onto);
 												out->x =onto->x *(dp/d);
 												out->y =onto->y *(dp/d);
 											}else{
@@ -213,10 +213,10 @@ void projectVector2i(Clim_vector2i *out, const Clim_vector2i *project,
 void projectVector2u(Clim_vector2u *out, const Clim_vector2u *project,
                     const Clim_vector2u *onto){
 
-											float d = dotProductu(onto,onto);
+											float d = dotProduct2u(onto,onto);
 											if(0<d)
 											{
-												float dp = dotProductu(project,onto);
+												float dp = dotProduct2u(project,onto);
 												out->x =onto->x *(dp/d);
 												out->y =onto->y *(dp/d);
 											}else{
@@ -229,10 +229,10 @@ void projectVector2u(Clim_vector2u *out, const Clim_vector2u *project,
 void projectVector2f(Clim_vector2f *out, const Clim_vector2f *project,
                     const Clim_vector2f *onto){
 
-											float d = dotProductf(onto,onto);
+											float d = dotProduct2f(onto,onto);
 											if(0<d)
 											{
-												float dp = dotProductf(project,onto);
+												float dp = dotProduct2f(project,onto);
 												out->x =onto->x *(dp/d);
 												out->y =onto->y *(dp/d);
 											}else{
