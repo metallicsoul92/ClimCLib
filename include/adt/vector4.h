@@ -93,5 +93,15 @@ Clim_vector4i *Min4i(Clim_vector4i *a,Clim_vector4i *b);
 Clim_vector4u *Min4u(Clim_vector4u *a,Clim_vector4u *b);
 Clim_vector4f *Min4f(Clim_vector4f *a,Clim_vector4f *b);
 
+//Misc Functions//
+inline float dotProduct4i(const Clim_vector4i *a,const Clim_vector4i *b){
+ return a->x * b->x + a->y * b->y + a->z * b->z + a->w * b->w;
+}
+inline float dotProduct4u(const Clim_vector4u *a,const Clim_vector4u *b){
+ return a->x * b->x + a->y * b->y + a->z * b->z + a->w * b->w;
+}
+inline float dotProduct4f(const Clim_vector4f *a,const Clim_vector4f *b){
+ return a->x * b->x + a->y * b->y + a->z * b->z + a->w * b->w;
+}
 
 #endif //Vector4

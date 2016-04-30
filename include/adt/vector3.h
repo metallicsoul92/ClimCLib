@@ -87,6 +87,16 @@ Clim_vector3i *Min3i(Clim_vector3i *a,Clim_vector3i *b);
 Clim_vector3u *Min3u(Clim_vector3u *a,Clim_vector3u *b);
 Clim_vector3f *Min3f(Clim_vector3f *a,Clim_vector3f *b);
 
+//Misc Functions//
+inline float dotProduct3i(const Clim_vector3i *a,const Clim_vector3i *b){
+	return a->x * b->x + a->y * b->y + a->z * b->z;
+}
+inline float dotProduct3u(const Clim_vector3u *a,const Clim_vector3u *b){
+	return a->x * b->x + a->y * b->y + a->z * b->z;
+}
+inline float dotProduct3f(const Clim_vector3f *a,const Clim_vector3f *b){
+	return a->x * b->x + a->y * b->y + a->z * b->z;
+}
 
 
 #endif
