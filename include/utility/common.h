@@ -23,5 +23,31 @@ inline float toRadians(float degrees){
 inline float toDegrees(float radians){
   return (float)(radians * (180.0f/M_PI));
 }
+inline float clampf(float *variable, const float min, const float max){
+    if(*variable < min){
+      return min;
+    }else if(*variable > max){
+      return max;
+    }else
+    return *variable;
+}
+
+inline float clampi(int *variable, const int min, const int max){
+    if(*variable < min){
+      return min;
+    }else if(*variable > max){
+      return max;
+    }else
+    return *variable;
+}
+inline unsigned int clampu(unsigned int *variable, const unsigned int min, const unsigned int max){
+    if(*variable < min){
+      return min;
+    }else if(*variable > max){
+      return max;
+    }else
+    return *variable;
+}
+
 
 #endif //common.h

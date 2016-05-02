@@ -69,11 +69,11 @@ void vecPushf(Clim_darrayf *source,float data);
 void vecPushc(Clim_darrayc *source,char data);
 void vecPushg(Clim_darrayg *source,void **data);
 
-void vecPopi(Clim_darrayi *source);
-void vecPopu(Clim_darrayu *source);
-void vecPopf(Clim_darrayf *source);
-void vecPopc(Clim_darrayc *source);
-void vecPopg(Clim_darrayg *source);
+int vecPopi(Clim_darrayi *source);
+unsigned int vecPopu(Clim_darrayu *source);
+float vecPopf(Clim_darrayf *source);
+char vecPopc(Clim_darrayc *source);
+void *vecPopg(Clim_darrayg *source);
 
 
 

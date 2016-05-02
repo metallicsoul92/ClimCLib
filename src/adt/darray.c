@@ -238,23 +238,33 @@ void vecPushg(Clim_darrayg *source,void **data){
 		source->current++;
 	}
 }
-void vecPopi(Clim_darrayi *source){
+int vecPopi(Clim_darrayi *source){
+	int element = source->data[source->current];
 	source->data[source->current] = 0;
 	source->current--;
+	return element;
 }
-void vecPopu(Clim_darrayu *source){
+unsigned int vecPopu(Clim_darrayu *source){
+	unsigned int element = source->data[source->current];
 	source->data[source->current] = 0;
 	source->current--;
+	return element;
 }
-void vecPopf(Clim_darrayf *source){
+float vecPopf(Clim_darrayf *source){
+  float element = source->data[source->current];
 	source->data[source->current] = 0;
 	source->current--;
+		return element;
 }
-void vecPopc(Clim_darrayc *source){
+char vecPopc(Clim_darrayc *source){
+	char element = source->data[source->current];
 	source->data[source->current] = 0;
 	source->current--;
+	return element;
 }
-void vecPopg(Clim_darrayg *source){
+void *vecPopg(Clim_darrayg *source){
+	void *element = source->data[source->current];
 	source->data[source->current] = 0;
 	source->current--;
+	return element;
 }
