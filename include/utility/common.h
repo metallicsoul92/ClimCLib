@@ -8,7 +8,7 @@
 #define M_PI CLIM_PI
 #endif //Pi definition
 
-typedef enum {FALSE,TRUE} cbool;
+typedef enum {FALSE = 0,TRUE=1} cbool;
 
 
 //TODO:Figure out if i need this, maybe a macro of if __builtin_inf() is null? idk
@@ -48,6 +48,13 @@ inline unsigned int clampu(unsigned int *variable, const unsigned int min, const
     }else
     return *variable;
 }
+
+inline void swapPointers(void *a,void *b){
+	void *temp;
+	temp = a;
+	a = b;
+	b = temp;
+	}
 
 
 #endif //common.h

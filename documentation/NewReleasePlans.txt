@@ -1,0 +1,3 @@
+May 4th,2016 (May The Fourth be with you! ;) )
+
+	Since this will become more then just a collections library, i must include graphics.  I want to incorporate SDL and OpenGL.  I will be planning this out right here.	RENDERING ONTO A SCREEN IS DIFFERENT THEN CREATING A SCREEN.  The screen will need to contain unsigned ints for width and height.  It also needs a const char * for the title. Other then that, it will need an Enum of renderer_type, as well as a pointer to the rendering context.

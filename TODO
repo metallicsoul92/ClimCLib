@@ -1,8 +1,24 @@
+5/6/2016: Version 1.2 Release
+================================
+TODO:
+		1. Graphics (HUGE ADDITION)
+			a. Create a window content with one function
+				i. Window should contain a char * Title, Vec2u Size , and maybe a context to draw on?
+			b. Create a basic 2D renderer that can do things like draw lines, shapes, textures
+
+
+
+	Finished:
+		1. Matricies
+		2. more vector functions
+
+
+
 1/23/2016: Version 0.1
 ================================
 TODO:
 	1. Implement more Abstract Data-Types such as:
-		a. Trees 
+		a. Trees
 			i. Maybe implement one with just left-right nodes
 			   and implement another with a pointer to the parent
 			   as well

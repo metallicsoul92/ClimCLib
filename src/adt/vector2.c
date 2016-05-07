@@ -186,6 +186,13 @@ Clim_vector2f *Min2f(Clim_vector2f *a,Clim_vector2f *b){
 }
 
 //Misc Functions//
+
+
+extern inline float dotProduct2i(const Clim_vector2i *a,const Clim_vector2i *b);
+extern inline float dotProduct2u(const Clim_vector2u *a,const Clim_vector2u *b);
+extern inline float dotProduct2f(const Clim_vector2f *a,const Clim_vector2f *b);
+
+
 void Rotate2f(Clim_vector2f *out, const Clim_vector2f *vec,float degree){
 	float radian = toRadians(degree);
 float sine = sinf(radian);
