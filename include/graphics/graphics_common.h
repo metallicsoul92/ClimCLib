@@ -17,8 +17,8 @@ typedef enum { CLIM_OPENGL = 1,
                CLIM_DIRECTX = 8,
                CLIM_VULKAN = 16 } renderingType;
 
- extern static cbool sdlIsInit = FALSE;
- extern const Clim_vector2u Clim_Static_DisplayResolutions[19];
+ static cbool sdlIsInit;
+  //static Clim_vector2u Clim_Static_DisplayResolutions[19];
   void initializeSDL(uint32_t flags);
   void initializeSDLWithEverything();
 
