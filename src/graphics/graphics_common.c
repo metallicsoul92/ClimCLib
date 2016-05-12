@@ -11,16 +11,20 @@
 };
 */
 
+  cbool sdlIsInit = FALSE;
+
 void initializeSDL(uint32_t flags){
   if(sdlIsInit != FALSE){
-    printf("error, SDL is already initialized");
+    printf("Warning, SDL is already initialized\n");
+    printf("SEEN FROM: graphics_common.c line 16: initializeSDL\n");
   }
   SDL_Init(flags);
   sdlIsInit = TRUE;
 }
 void initializeSDLWithEverything(){
   if(sdlIsInit !=FALSE){
-    printf("error, SDL is already initialized");
+    printf("Warning, SDL is already initialized\n");
+    printf("SEEN FROM: graphics_common.c line 24: initializeSDLWithEverything\n");
   }
   SDL_Init(SDL_INIT_EVERYTHING);
   sdlIsInit = TRUE;

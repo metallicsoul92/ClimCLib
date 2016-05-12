@@ -21,7 +21,7 @@ OBJS += $(patsubst $(SOURCE_DIR)/utility/%.c,$(SOURCE_DIR)/utility/%.o,$(wildcar
 OBJS += $(patsubst $(SOURCE_DIR)/graphics/%.c,$(SOURCE_DIR)/graphics/%.o,$(wildcard $(SOURCE_DIR)/graphics/*.c))
 
 CC = gcc
-CFLAGS := -Wall -Werror -pedantic-errors -std=c11 -I$(INCLUDE_DIR)
+CFLAGS :=  -g -Wall -Werror -pedantic-errors -std=c11 -I$(INCLUDE_DIR)
 
 .PHONY: all clean make_local rm_Local test
 

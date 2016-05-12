@@ -4,6 +4,7 @@
 #include "../dep/SDL2-2.0.4/include/SDL_events.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
 
 
@@ -13,11 +14,17 @@
 int main(int argc, char*argv[]){
   sdlIsInit = FALSE;
 
-  /*Clim_window *test = NULL;
+  Clim_window *test = NULL;
   test = (Clim_window*) malloc(sizeof(Clim_window));
 
-  Clim_window *test2 = NULL;
-  test2 = (Clim_window*) malloc(sizeof(Clim_window));
+  //Clim_window *test2 = NULL;
+  //test2 = (Clim_window*) malloc(sizeof(Clim_window));
+
+  Clim_renderer *render1;
+  //Clim_renderer *render2;
+
+  render1 = (Clim_renderer*)malloc(sizeof(Clim_renderer*));
+  //render2 =  (Clim_renderer*)malloc(sizeof(Clim_renderer*));
 
    Clim_vector2u Clim_Static_DisplayResolutions[19] = {
     {800,600},{1024,600},{1024,768},
@@ -28,24 +35,48 @@ int main(int argc, char*argv[]){
     {2560,1600},{3840,2160},{1536,864},
   };
 
-    Clim_vector2i a;
-    a.x = Clim_Static_DisplayResolutions[0].x;
-    a.y = Clim_Static_DisplayResolutions[0].y;
-    Clim_vector2i b;
-    b.x = 15;
-    a.y = 25;
-    Clim_vector2i c;
+    Clim_segment2i a= {{10,10},{100,100}};;
+
+    Clim_segment2i *x;
+    x = &a;
+
 
     Clim_vector2u resolution;
     resolution = Clim_Static_DisplayResolutions[1];
-    addVec2i(&c,&a,&b);
 
-    createWindow(test2, "Clim Third Test",resolution.x, resolution.y);
+
+    //createWindow(test2, "Clim Third Test",resolution.x, resolution.y);
     createWindowWithVec2(test,"Clim Fourth test",resolution);
+    createRenderer(render1,test,CLIM_2D);
+    //createRenderer(render2,test2,CLIM_3D);
     printf("Running...\n");
-    SDL_Event testev;
 
+
+
+      SDL_Event testev;
     while(testev.type != SDL_QUIT){
+    //  printf("Clearing color of background to blue\n");
+        if(SDL_SetRenderDrawColor(render1->context.asSDL,0,0,255,255) != 0){
+        printf("There is an error with SDL_SetRenderDrawColor! \n");
+        printf("%s\n",SDL_GetError());
+      }
+      if(SDL_RenderClear(render1->context.asSDL) !=0){
+      printf("There is an error with SDL_RenderClear \n");
+      printf("%s\n",SDL_GetError());
+    }
+    //  printf("Reverting to red to draw line\n");
+      if(SDL_SetRenderDrawColor(render1->context.asSDL,255,0,0,255) != 0){
+        printf("There is an error with SDL_SetRenderDrawColor! \n");
+        printf("%s\n",SDL_GetError());
+      }
+
+      if(SDL_RenderDrawLine(render1->context.asSDL,x->pointA.x,x->pointA.y,x->pointB.x,x->pointB.y) !=0){
+        printf("There is an error with SDL_RenderDrawLine\n");
+        printf("%s\n",SDL_GetError());
+      }
+
+
+
 
     while(SDL_PollEvent(&testev)){
       switch(testev.type){
@@ -56,39 +87,41 @@ int main(int argc, char*argv[]){
           mouse.y = testev.motion.y;
           printf("Current mouse position is: (%d, %d)\n", mouse.x, mouse.y);
           break;
+        case SDL_KEYDOWN:
+        switch(testev.key.keysym.sym){
+          case SDLK_a:
+          x->pointA.x -= 1;
+          x->pointB.x -= 1;
+          break;
+          case SDLK_d:
+          x->pointA.x += 1;
+          x->pointB.x += 1;
+          break;
+          case SDLK_s:
+          x->pointA.y += 1;
+          x->pointB.y += 1;
+          break;
+          case SDLK_w:
+          x->pointA.y -= 1;
+          x->pointB.y -= 1;
+          break;
+        }
+        break;
         case SDL_QUIT:
           SDL_Quit();
         default:
           printf("Unhandled Event!\n");
           break;
   }
+      SDL_RenderPresent(render1->context.asSDL);
 printf("Event queue empty.\n");
     }
 }
 
     SDL_Quit();
-    printf("C Equals: %d,%d\n", c.x, c.y);
-*/
 
 
-  Clim_linei2D x,y;
-  x.base.x = 3;
-  x.base.y = 3;
 
-  x.direction.x  = 1;
-  x.direction.y = 1;
-
-  y.base.x = 5;
-  y.base.y = 5;
-
-  y.direction.x  = -1;
-  y.direction.y = 1;
-
-  if(perpendicular2i(&x,&y) == TRUE){
-    printf("X and Y are Perpendicular");
-  }else{
-    printf("X and Y are not Perpendicular");
-  }
 
     return 0;
 }

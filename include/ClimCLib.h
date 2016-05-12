@@ -23,5 +23,6 @@
 
 #include "graphics/graphics_common.h"
 #include "graphics/window.h"
+#include "graphics/renderer.h"
 
 #endif //climclib
