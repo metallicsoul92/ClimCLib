@@ -29,3 +29,15 @@ void initializeSDLWithEverything(){
   SDL_Init(SDL_INIT_EVERYTHING);
   sdlIsInit = TRUE;
 }
+
+
+
+uint32_t colorToUI32(Clim_colorui8 *color){
+  uint32_t color32;
+  color32 = color->r | (color->g << 8) | (color->b <<16) | (color->a << 24);
+  return color32;
+}
+
+void logSDLError(const char * message){
+  printf("%s error: %s\n",message,SDL_GetError());
+}

@@ -4,7 +4,7 @@ LIB_NAME = ClimCLib
 PREFIX := /usr/local
 
 SOURCE_DIR = src
-INCLUDE_DIR = include -Idep/SDL2-2.0.4/include
+INCLUDE_DIR = include -Idep/SDL2-2.0.4/include -Idep/SDL2_image-2.0.1
 
 
 DEPS_DIR = dep/
@@ -32,12 +32,12 @@ $(LIB): $(OBJS)
 	ar rcs $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -L$(DEPS_DIR) $(DEPS) -o $@ -lm -lSDL2
+	$(CC) $(CFLAGS) -c $< -L$(DEPS_DIR) $(DEPS) -o $@ -lm -lSDL2 -lSDL2_image
 
 clean:
 	rm -Rf bin
 	find $(SOURCE_DIR) -name "*.o" -delete
-	find $(INCLUDE_DIR) -name "*.gch" -delete
+	find include -name "*.gch" -delete
 
 install:
 	mkdir -p $(PREFIX)/include/climclib
@@ -46,9 +46,9 @@ install:
 	cp -R include/* $(PREFIX)/include/climclib
 
 testless:
-		$(CC) -Wall -std=c11 -I$(INCLUDE_DIR) -c tests/test1.c -o ClimCTest.o -Ldep/ -lLinux/SDL2/build/.libs/SDL2  -lm -lSDL2
-		$(CC) -g -o Test1 ClimCTest.o  bin/ClimCLib.a -lm -lSDL2
+		$(CC) -Wall -std=c11 -I$(INCLUDE_DIR) -c tests/test1.c -o ClimCTest.o -Ldep/ -lLinux/SDL2/build/.libs/SDL2  -lm -lSDL2 -lSDL2_image
+		$(CC) -g -o Test1 ClimCTest.o  bin/ClimCLib.a -lm -lSDL2 -lSDL2_image
 
 test:
-	$(CC) $(CFLAGS) -c tests/test1.c -o ClimCTest.o -Ldep/ -lLinux/SDL2/build/.libs/SDL2  -lm -lSDL2
-	$(CC) -g -o Test1 ClimCTest.o  bin/ClimCLib.a -lm -lSDL2
+	$(CC) $(CFLAGS) -c tests/test1.c -o ClimCTest.o -Ldep/ -lLinux/SDL2/build/.libs/SDL2  -lm -lSDL2 -lSDL2_image
+	$(CC) -g -o Test1 ClimCTest.o  bin/ClimCLib.a -lm -lSDL2 -lSDL2_image

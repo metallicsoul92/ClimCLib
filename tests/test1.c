@@ -2,7 +2,7 @@
 #include <SDL.h>
 #include "../dep/SDL2-2.0.4/include/SDL.h"
 #include "../dep/SDL2-2.0.4/include/SDL_events.h"
-
+#include <SDL_image.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -105,6 +105,18 @@ int main(int argc, char*argv[]){
           x->pointA.y -= 1;
           x->pointB.y -= 1;
           break;
+          case SDLK_j:
+          x->pointA.x -= 1;
+          break;
+          case SDLK_l:
+          x->pointA.x += 1;
+          break;
+          case SDLK_i:
+          x->pointA.y -= 1;
+          break;
+          case SDLK_k:
+          x->pointA.y += 1;
+          break;
         }
         break;
         case SDL_QUIT:
@@ -114,7 +126,7 @@ int main(int argc, char*argv[]){
           break;
   }
       SDL_RenderPresent(render1->context.asSDL);
-printf("Event queue empty.\n");
+      //printf("Event queue empty.\n");
     }
 }
 
