@@ -10,21 +10,6 @@
 //                                                   //
 ///////////////////////////////////////////////////////
 
-
- 5/23/2016:
-	Version 1.5
-
-
-
-	To Build:
-		This is a compiler-dependant project, in
-	to build, you must run make all and it will be built
-	to your default compiler (To use a different one, just
-	use make all CC=compilerOfChoice).
-		To get future updates, read the TODO file.  I also
-	include a tests folder, which i have one file called
-	test.  You can use this to test your current build and
-	its capabilities.  just run make all and then make test and
-	you will have a Test1 executable. In a linux enviornment, you
-	just need to run ./Test1 to run it.
-		
+  Update: 4/17/16:
+    So i have decided to roll out my own custom physics objects in this library
+    so that i can use them later in my game engine.

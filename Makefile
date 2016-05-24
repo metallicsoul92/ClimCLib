@@ -20,10 +20,10 @@ OBJS += $(patsubst $(SOURCE_DIR)/physics/%.c,$(SOURCE_DIR)/physics/%.o,$(wildcar
 OBJS += $(patsubst $(SOURCE_DIR)/utility/%.c,$(SOURCE_DIR)/utility/%.o,$(wildcard $(SOURCE_DIR)/utility/*.c))
 OBJS += $(patsubst $(SOURCE_DIR)/graphics/%.c,$(SOURCE_DIR)/graphics/%.o,$(wildcard $(SOURCE_DIR)/graphics/*.c))
 
-CC = gcc
+
 CFLAGS :=  -g -Wall -Werror -pedantic-errors -std=c11 -I$(INCLUDE_DIR)
 
-.PHONY: all clean make_local rm_Local test
+ .PHONY: all clean make_local rm_Local test
 
 all: $(LIB)
 
@@ -32,7 +32,7 @@ $(LIB): $(OBJS)
 	ar rcs $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -L$(DEPS_DIR) $(DEPS) -o $@ -lm -lSDL2 -lSDL2_image
+	$(CC) $(CFLAGS) -c $<  -o $@
 
 clean:
 	rm -Rf bin
@@ -50,5 +50,5 @@ testless:
 		$(CC) -g -o Test1 ClimCTest.o  bin/ClimCLib.a -lm -lSDL2 -lSDL2_image
 
 test:
-	$(CC) $(CFLAGS) -c tests/test1.c -o ClimCTest.o -Ldep/ -lLinux/SDL2/build/.libs/SDL2  -lm -lSDL2 -lSDL2_image
+	$(CC) $(CFLAGS) -c tests/test1.c -o ClimCTest.o
 	$(CC) -g -o Test1 ClimCTest.o  bin/ClimCLib.a -lm -lSDL2 -lSDL2_image

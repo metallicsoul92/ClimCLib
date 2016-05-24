@@ -88,6 +88,7 @@ int main(int argc, char*argv[]){
           printf("Current mouse position is: (%d, %d)\n", mouse.x, mouse.y);
           break;
         case SDL_KEYDOWN:
+        printf("Key press");
         switch(testev.key.keysym.sym){
           case SDLK_a:
           x->pointA.x -= 1;
@@ -122,7 +123,7 @@ int main(int argc, char*argv[]){
         case SDL_QUIT:
           SDL_Quit();
         default:
-          printf("Unhandled Event!\n");
+        //  printf("Unhandled Event!\n");
           break;
   }
       SDL_RenderPresent(render1->context.asSDL);
