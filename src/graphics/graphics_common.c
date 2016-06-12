@@ -30,6 +30,16 @@ void initializeSDLWithEverything(){
   sdlIsInit = TRUE;
 }
 
+Clim_colorui8 createColor(uint8_t r,uint8_t g, uint8_t b, uint8_t a){
+  Clim_colorui8 temp;
+  temp.r = r;
+  temp.g = g;
+  temp.b = b;
+  temp.a = a;
+
+  return temp;
+}
+
 
 
 uint32_t colorToUI32(Clim_colorui8 *color){

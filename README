@@ -11,8 +11,8 @@
 ///////////////////////////////////////////////////////
 
 
- 5/23/2016:
-	Version 1.5
+ 6/11/2016:
+	Version 1.2
 
 
 
@@ -27,4 +27,3 @@
 	its capabilities.  just run make all and then make test and
 	you will have a Test1 executable. In a linux enviornment, you
 	just need to run ./Test1 to run it.
-		

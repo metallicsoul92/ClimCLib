@@ -16,6 +16,8 @@ int main(int argc, char*argv[]){
 
   Clim_window *test = NULL;
   test = (Clim_window*) malloc(sizeof(Clim_window));
+  Clim_texture *sprite = NULL;
+  sprite = (Clim_texture*)malloc(sizeof(Clim_texture));
 
   //Clim_window *test2 = NULL;
   //test2 = (Clim_window*) malloc(sizeof(Clim_window));
@@ -49,8 +51,23 @@ int main(int argc, char*argv[]){
     createWindowWithVec2(test,"Clim Fourth test",resolution);
     createRenderer(render1,test,CLIM_2D);
     //createRenderer(render2,test2,CLIM_3D);
-    printf("Running...\n");
 
+    printf("Running...\n");
+    createTexture(sprite,"tests/sprite.png",render1->context.asSDL,10,10,32,32);
+
+
+Clim_rectangle2i *rect = (Clim_rectangle2i*)malloc(sizeof(Clim_rectangle2i*));
+rect->origin.x = 10;
+rect->origin.y = 10;
+rect->size.x = 90;
+rect->size.y = 90;
+
+  printf("Rectangles Origin: %i,%i\n",rect->origin.x,rect->origin.y);
+  printf("Rectangles Size: %i,%i\n",rect->size.x,rect->size.y);
+
+  SDL_Rect *check = ClimtoSDLRect2Ptr(rect);
+  printf("SDLRect Origin: %i, %i\n", check->x,check->y);
+  printf("SDLRect Size: %i, %i\n", check->w,check->h);
 
 
       SDL_Event testev;
@@ -60,6 +77,7 @@ int main(int argc, char*argv[]){
         printf("There is an error with SDL_SetRenderDrawColor! \n");
         printf("%s\n",SDL_GetError());
       }
+
       if(SDL_RenderClear(render1->context.asSDL) !=0){
       printf("There is an error with SDL_RenderClear \n");
       printf("%s\n",SDL_GetError());
@@ -74,8 +92,14 @@ int main(int argc, char*argv[]){
         printf("There is an error with SDL_RenderDrawLine\n");
         printf("%s\n",SDL_GetError());
       }
+      Clim_colorui8 green = createColor(0,255,0,0);
 
+      Clim_renderDrawRectangle2i(render1,rect,&green);
 
+     if(Clim_renderTextureByPosition(render1,sprite,NULL,&sprite->position) != 0){
+       printf("There is an error with Clim_renderTexture\n");
+       printf("%s\n",SDL_GetError());
+     }
 
 
     while(SDL_PollEvent(&testev)){
@@ -88,23 +112,23 @@ int main(int argc, char*argv[]){
           printf("Current mouse position is: (%d, %d)\n", mouse.x, mouse.y);
           break;
         case SDL_KEYDOWN:
-        printf("Key press");
+        printf("We Got a key Event! \n");
         switch(testev.key.keysym.sym){
           case SDLK_a:
-          x->pointA.x -= 1;
-          x->pointB.x -= 1;
+          sprite->position.x -= 1;
+
           break;
           case SDLK_d:
-          x->pointA.x += 1;
-          x->pointB.x += 1;
+          sprite->position.x += 1;
+
           break;
           case SDLK_s:
-          x->pointA.y += 1;
-          x->pointB.y += 1;
+        sprite->position.y += 1;
+
           break;
           case SDLK_w:
-          x->pointA.y -= 1;
-          x->pointB.y -= 1;
+          sprite->position.y -= 1;
+
           break;
           case SDLK_j:
           x->pointA.x -= 1;

@@ -46,4 +46,6 @@ Clim_vector3u recCorner3u(const Clim_rectangle3u rect,const int nr);
 Clim_vector3f recCorner3f(const  Clim_rectangle3f rect,const int nr);
 
 
+
+
 #endif //rectangle.h

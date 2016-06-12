@@ -24,5 +24,8 @@
 #include "graphics/graphics_common.h"
 #include "graphics/window.h"
 #include "graphics/renderer.h"
+#include "graphics/shapes.h"
+#include "graphics/renderingAPI.h"
+#include "graphics/texture.h"
 
 #endif //climclib

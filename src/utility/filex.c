@@ -4,6 +4,42 @@
 #include <stdlib.h>
 #include <assert.h>
 
+
+Clim_logMessage newLogMessage(logLevel l, char *message){
+  Clim_logMessage cm;
+  cm.level = l;
+  cm.message = message;
+
+  return cm;
+}
+
+void writeToLogFile(const char* filepath,Clim_logMessage message){
+  char *fullData = (char*)malloc(sizeof(message)+sizeof(logString(message.level)));
+  fullData = logString(message.level);
+  strcat(fullData,message.message);
+  writeToFile(filepath,fullData);
+}
+
+ char * logString(logLevel l){
+  switch(l){
+    case CLIM_LOG_LOW:
+    return "CLIM_LOG_LOW: ";
+    break;
+    case CLIM_LOG_WARNING:
+    return "CLIM_LOG_WARNING: ";
+    break;
+    case CLIM_LOG_ERROR:
+    return "CLIM_LOG_ERROR: ";
+    break;
+    case CLIM_LOG_VERBOSE:
+    return "CLIM_LOG_VERBOSE: ";
+    break;
+    default:
+    return "Unknown Log Level: ";
+  }
+}
+
+
 const char * readFile(const char* filepath){
 //open file
    FILE* infile = fopen(filepath,"r");

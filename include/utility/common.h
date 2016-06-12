@@ -1,9 +1,8 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 #include <math.h>
-
+#include <assert.h>
 #define CLIM_PI 3.1415926353f
-
 #ifndef M_PI
 #define M_PI CLIM_PI
 #endif //Pi definition
